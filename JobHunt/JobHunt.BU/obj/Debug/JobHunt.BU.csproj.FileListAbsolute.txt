@@ -1,0 +1,325 @@
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csprojAssemblyReference.cache
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csproj.CoreCompileInputs.cache
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.dll.config
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.dll
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.pdb
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.dll
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.SqlServer.dll
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.dll
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.dll
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\PagedList.dll
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\PagedList.Mvc.dll
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.pdb
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.dll.config
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.pdb
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.dll.config
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.xml
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.SqlServer.xml
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\PagedList.xml
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\bin\Debug\PagedList.Mvc.xml
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csproj.CopyComplete
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.dll
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.pdb
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.dll.config
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.pdb
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.SqlServer.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\PagedList.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\PagedList.Mvc.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.pdb
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.dll.config
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.pdb
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.dll.config
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.SqlServer.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\PagedList.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\PagedList.Mvc.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csprojAssemblyReference.cache
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csproj.CoreCompileInputs.cache
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csproj.CopyComplete
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.pdb
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Newtonsoft.Json.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Owin.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.Helpers.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.Mvc.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.Razor.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Newtonsoft.Json.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.Helpers.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.Mvc.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.Razor.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.dll.config
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.pdb
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.SqlServer.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Newtonsoft.Json.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Owin.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\PagedList.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\PagedList.Mvc.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.Helpers.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.Mvc.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.Razor.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.pdb
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.dll.config
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.pdb
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.dll.config
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.SqlServer.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\Newtonsoft.Json.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\PagedList.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\PagedList.Mvc.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.Helpers.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.Mvc.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.Razor.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csprojAssemblyReference.cache
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csproj.CopyComplete
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.dll
+D:\Work\Projects\.NET\DATN\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.pdb
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.dll.config
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.pdb
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Owin.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\PagedList.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\PagedList.Mvc.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\System.Web.Helpers.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\System.Web.Mvc.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\System.Web.Razor.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.pdb
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.dll.config
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.pdb
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.dll.config
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\PagedList.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\PagedList.Mvc.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\System.Web.Helpers.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\System.Web.Mvc.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\System.Web.Razor.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csproj.CopyComplete
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.dll
+C:\Users\Admin\Desktop\Bin\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.pdb
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.dll.config
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.pdb
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Newtonsoft.Json.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Owin.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\PagedList.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\PagedList.Mvc.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\System.Web.Helpers.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\System.Web.Mvc.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\System.Web.Razor.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.pdb
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.dll.config
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.pdb
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.dll.config
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\Newtonsoft.Json.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\PagedList.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\PagedList.Mvc.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\System.Web.Helpers.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\System.Web.Mvc.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\System.Web.Razor.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csprojAssemblyReference.cache
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csproj.CoreCompileInputs.cache
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csproj.CopyComplete
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.dll
+C:\Users\cuong\Downloads\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.pdb
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.dll.config
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.pdb
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.SqlServer.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Newtonsoft.Json.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Owin.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\PagedList.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\PagedList.Mvc.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\System.Web.Helpers.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\System.Web.Mvc.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\System.Web.Razor.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Razor.dll
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.pdb
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.pdb
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.SqlServer.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\Newtonsoft.Json.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\PagedList.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\PagedList.Mvc.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\System.Web.Helpers.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\System.Web.Mvc.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\System.Web.Razor.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\C#\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Razor.xml
+D:\C#\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csprojResolveAssemblyReference.cache
+D:\C#\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.dll
+D:\C#\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.pdb
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.dll.config
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\JobHunt.BU.pdb
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.SqlServer.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Newtonsoft.Json.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Owin.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\PagedList.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\PagedList.Mvc.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\System.Web.Helpers.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\System.Web.Mvc.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\System.Web.Razor.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Razor.dll
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Model.pdb
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\JobHunt.Repository.pdb
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\EntityFramework.SqlServer.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\Newtonsoft.Json.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\PagedList.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\PagedList.Mvc.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\System.Web.Helpers.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\System.Web.Mvc.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\System.Web.Razor.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\New folder\JobHunt\JobHunt.BU\bin\Debug\System.Web.WebPages.Razor.xml
+D:\New folder\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.csprojResolveAssemblyReference.cache
+D:\New folder\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.dll
+D:\New folder\JobHunt\JobHunt.BU\obj\Debug\JobHunt.BU.pdb

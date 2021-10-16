@@ -1,0 +1,297 @@
+﻿@model PagedList.IPagedList<JobHunt.BU.DTO.RecruitJobDTO>
+@using PagedList.Mvc;
+@using JobHunt.BU.DTO
+@using JobHunt.BU.Manage
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Tất cả công việc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ///Lấy danh sách lương
+    var ListSalaries = (List<SalaryDTO>)ViewBag.ListSalaries;
+
+    //Lấy danh sách trình độ
+    var ListLevels = (List<LevelInfoDTO>)ViewBag.ListLevels;
+
+    //Lấy danh sách kinh nghiệm
+    var ListExperiences = (List<ExperienceDTO>)ViewBag.ListExperiences;
+
+    //Lấy danh sách thể loại công việc
+    var ListWorkTypes = (List<WorkTypeDTO>)ViewBag.ListWorkTypes;
+
+
+    string chooseDate = ViewBag.chooseDate;
+    List<int?> ListChooseWorkType = ViewBag.chooseWorkType;
+
+    var sttJob = "";
+
+    var UserId = User.Identity.GetUserId();
+    //class check save job
+    var classCheckSJ = "";
+
+    //list job suggest
+    var ListSuggest = (List<RecruitJobDTO>)ViewBag.ListSuggest;
+}
+
+
+<section class="overlape">
+    <div class="block no-padding">
+        <div data-velocity="-.1" style="background: url(/Assets/client/images/resource/mslider1.jpg) 50% -62.6px repeat scroll transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+        <div class="container fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-header wform">
+                        <div class="job-search-sec">
+                            <div class="job-search">
+                                <h4>Khám phá hàng ngàn công việc chỉ với tìm kiếm đơn giản ...</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="block remove-top">
+        <div class="container">
+            <div class="row no-gape">
+                <aside class="col-lg-4 column">
+                    @using (Html.BeginForm("ListJobs", "RecruitJob", FormMethod.Post))
+                    {
+                        <div class="widget">
+                            <div class="search_widget_job">
+                                <div class="field_w_search">
+                                    <input type="text" placeholder="Từ khóa..." name="keyWord" value="@ViewBag.keyWord">
+                                    <button type="submit" class="btn btn-primary" style="background: none; border: none">
+                                        <i class="la la-search"></i>
+                                    </button>
+                                </div><!-- Search Widget -->
+                                <div class="field_w_search search-auto-fill">
+                                    @Html.DropDownList("idcity", (IEnumerable<SelectListItem>)ViewBag.ListCities, "Tỉnh/Thành phố", new { @class = "chosen-city" })
+                                </div><!-- Search Widget -->
+                                <div class="field_w_search search-auto-fill">
+                                    @Html.DropDownList("idprofession", (IEnumerable<SelectListItem>)ViewBag.ListProfesstions, "Tất cả danh mục", new { @class = "chosen-city" })
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="widget border">
+                                <h3 class="sb-title open">Ngày đăng</h3>
+                                <div class="posted_widget" style="">
+                                    <input type="radio" name="chooseDate" id="1h" value="1h"><label for="1h"> 1 giờ trước</label><br>
+                                    <input type="radio" name="chooseDate" id="24h" value="24h"><label for="24h">24 giờ qua</label><br>
+                                    <input type="radio" name="chooseDate" id="168h" value="168h"><label for="168h">1 Tuần qua</label><br>
+                                    <input type="radio" name="chooseDate" id="0h" value="0h"><label class="nm" for="0h">Tất cả</label><br>
+                                </div>
+                                <script>
+                                    $("input[name=chooseDate][value=@chooseDate]").attr('checked', 'checked');
+                                </script>
+                            </div>
+                            <div class="widget border">
+                                <h3 class="sb-title open">Thể loại công việc</h3>
+                                <div class="type_widget" style="">
+                                    @if (ListWorkTypes.Count > 0)
+                                    {
+                                        foreach (var item in ListWorkTypes)
+                                        {
+                                            <p class="flchek"><input type="checkbox" name="chooseWorkType" id="wt@(item.WorkTypeId)" value="@item.WorkTypeId"><label for="wt@(item.WorkTypeId)">@item.WTName</label></p>
+                                        }
+                                    }
+                                </div>
+                                @if (ListChooseWorkType != null)
+                                {
+                                    foreach (var wt in ListChooseWorkType)
+                                    {
+                                        <script>
+                                            $("input[name=chooseWorkType][value='" + @wt + "']").attr('checked', 'checked');
+                                        </script>
+                                    }
+                                }
+                            </div>
+                            <div class="widget border">
+                                <h3 class="sb-title closed">Lương</h3>
+                                <div class="specialism_widget" style="display: none;">
+                                    <div class="simple-checkbox">
+                                        @if (ListSalaries.Count > 0)
+                                        {
+                                            foreach (var item in ListSalaries)
+                                            {
+                                                <p><input type="checkbox" name="chooseSalary" id="slr@(item.SalaryId)" value="@item.SalaryId"><label for="slr@(item.SalaryId)">@item.SShow</label></p>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget border">
+                                <h3 class="sb-title closed">Kinh nghiệm</h3>
+                                <div class="specialism_widget" style="display: none;">
+                                    <div class="simple-checkbox">
+                                        @if (ListExperiences.Count > 0)
+                                        {
+                                            foreach (var item in ListExperiences)
+                                            {
+                                                <p><input type="checkbox" name="chooseExperience" id="exp@(item.ExperienceId)" value="@item.ExperienceId"><label for="exp@(item.ExperienceId)">@item.EShow</label></p>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget border">
+                                <h3 class="sb-title closed">Giới tính</h3>
+                                <div class="specialism_widget" style="display: none;">
+                                    <div class="simple-checkbox">
+                                        <p><input type="checkbox" name="chooseGender" id="13" value="1"><label for="13">Nam</label></p>
+                                        <p><input type="checkbox" name="chooseGender" id="14" value="2"><label for="14">Nữ</label></p>
+                                        <p><input type="checkbox" name="chooseGender" id="15" value="3"><label for="15">Khác</label></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget border">
+                                <h3 class="sb-title closed">Trình độ</h3>
+                                <div class="specialism_widget" style="display: none;">
+                                    <div class="simple-checkbox">
+                                        @if (ListLevels.Count > 0)
+                                        {
+                                            foreach (var item in ListLevels)
+                                            {
+                                                <p><input type="checkbox" name="chooseLevel" id="lv@(item.LevelInfoId)" value="@item.LevelInfoId"><label for="lv@(item.LevelInfoId)">@item.LIName</label></p>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>*@
+                        <div class="banner_widget">
+                            <a href="#" title=""><img src="~/Assets/client/images/resource/banner.png" alt=""></a>
+                        </div>
+                    }
+
+                </aside>
+                <div class="col-lg-8 column">
+                    <div class="modrn-joblist np">
+                        <div class="filterbar">
+                            @*<span class="emlthis"><a href="mailto:example.com" title=""><i class="la la-envelope-o"></i> Gửi mail cho tôi</a></span>*@
+                            <h5 style="line-height: 0; float: right; width: auto">@Model.Count trong tổng số @Model.TotalItemCount công việc</h5>
+                        </div>
+                    </div><!-- MOdern Job LIst -->
+                    <div class="job-list-modern">
+                        <div class="job-listings-sec no-border">
+                            @if (Model != null && Model.Count > 0)
+                            {
+                                foreach (var job in Model)
+                                {
+                                    <div class="job-listing wtabs">
+                                        @if (job.RecruitDTO != null)
+                                        {
+                                            <div class="job-title-sec">
+                                                <div class="c-logo" style="height: 110px"> <img src="@job.RecruitDTO.RILogo" alt="@job.RecruitDTO.RICompanyName" class="logo-company"> </div>
+                                                <h3 class=""><a href="@Url.Action("DetailJob", "RecruitJob", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(job.RJTitle, job.RecruitJobId) })" title="@job.RJTitle" class="titlejob">@job.RJTitle</a></h3>
+                                                <a style="color: #1e83f0; display: table; float: none;" href="@Url.Action("DetailRecruit", "Recruit", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(job.RecruitDTO.RICompanyName, job.RecruitDTO.RecruitId) })">@job.RecruitDTO.RICompanyName</a>
+                                                <div class="job-lctn"><i class="la la-map-marker"></i>@job.RJ_WorkPlace</div>
+                                                <br />
+                                                <div class="job-lctn" style="color: #888888"><i class="la la-money"></i>@job.SalaryDTO.SShow</div>
+                                                <br />
+                                                <div class="job-lctn" style="color: #888888"><i class="la la-calendar-o"></i>Hết hạn: @job.RJExpirationDate.Value.ToShortDateString()</div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="job-title-sec">
+                                                <div class="c-logo"> <img src="/Assets/client/images/resource/logo10.png" alt="" class="logo-company"> </div>
+                                                <h3 class=""><a href="@Url.Action("DetailJob", "RecruitJob", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(job.RJTitle, job.RecruitJobId) })" title="" class="titlejob">@job.RJTitle</a></h3>
+                                                <span>Bài đăng bởi admin</span>
+                                                <div class="job-lctn"><i class="la la-map-marker"></i>@job.CityDTO.CName</div>
+                                            </div>
+                                        }
+
+                                        <div class="job-style-bx">
+                                            <span class="job-is @job.ClassWorkType fill worktype-job" style="color: white !important">@job.WorkTypeDTO.WTName</span>
+                                            @if (!string.IsNullOrEmpty(UserId) && job.RecruitDTO != null)
+                                            {
+                                                var CheckSaveJob = new CandidateManage().CheckSaveJob(UserId, job.RecruitJobId);
+
+                                                if (CheckSaveJob != 0)
+                                                {
+                                                    classCheckSJ = "active";
+                                                }
+                                                else
+                                                {
+                                                    classCheckSJ = "";
+                                                }
+                                                <span class="fav-job @classCheckSJ" id="rc@(job.RecruitJobId)"><i class="la la-heart-o"></i></span>
+                                            }
+                                            else
+                                            {
+                                                <span class="fav-job" id="rc@(job.RecruitJobId)"><i class="la la-heart-o"></i></span>
+                                            }
+
+                                            @*<i>5 months ago</i>*@
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="recent-jobs">
+                                    <h3>Gợi ý công việc phù hợp</h3>
+                                    <div class="job-list-modern">
+                                        <div class="job-listings-sec no-border">
+                                            @if (ListSuggest.Count > 0)
+                                            {
+                                                foreach (var item in ListSuggest.Take(5))
+                                                {
+                                                    if (item.CountDays == 0)
+                                                    {
+                                                        item.CountDays = 1;
+                                                    }
+                                                    <div class="job-listing wtabs">
+                                                        @if (item.RecruitDTO != null)
+                                                        {
+                                                            <div class="job-title-sec">
+                                                                <div class="c-logo"> <img src="@item.RecruitDTO.RILogo" alt="" class="logo-company"> </div>
+                                                                <h3><a href="@Url.Action("DetailJob", "RecruitJob", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(item.RJTitle, item.RecruitJobId) })" title="">@item.RJTitle</a></h3>
+                                                                <span>@item.RecruitDTO.RIFullName</span>
+                                                                <div class="job-lctn"><i class="la la-map-marker"></i>@item.CityDTO.CName</div>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="job-title-sec">
+                                                                <div class="c-logo"> <img src="/Assets/client/images/resource/logo10.png" alt="" class="logo-company"> </div>
+                                                                <h3 class=""><a href="@Url.Action("DetailJob", "RecruitJob", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(item.RJTitle, item.RecruitJobId) })" title="" class="titlejob">@item.RJTitle</a></h3>
+                                                                <span>Bài đăng bởi admin</span>
+                                                                <div class="job-lctn"><i class="la la-map-marker"></i>@item.CityDTO.CName</div>
+                                                            </div>
+                                                        }
+
+                                                        <div class="job-style-bx">
+                                                            <span class="job-is job-detail-recentjob @item.ClassWorkType worktype-job">@item.WorkTypeDTO.WTName</span>
+                                                            <span class="fav-job" id="rc@(item.RecruitJobId)"><i class="la la-heart-o"></i></span>
+                                                            <i>@item.CountDays ngày</i>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                        <div class="pagination">
+                            @Html.PagedListPager(Model, page => Url.Action("ListJobs", new { page, keyWord = ViewBag.keyWord, chooseDate = ViewBag.chooseDate, chooseWorkType = ViewBag.chooseWorkType }))
+                            @*<ul>
+                                    <li class="prev"><a href=""><i class="la la-long-arrow-left"></i> Prev</a></li>
+                                    <li><a href="">1</a></li>
+                                    <li class="active"><a href="">2</a></li>
+                                    <li><a href="">3</a></li>
+                                    <li><span class="delimeter">...</span></li>
+                                    <li><a href="">14</a></li>
+                                    <li class="next"><a href="">Next <i class="la la-long-arrow-right"></i></a></li>
+                                </ul>*@
+                        </div><!-- Pagination -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

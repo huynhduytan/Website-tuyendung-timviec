@@ -1,0 +1,102 @@
+
+
+@media screen and (max-width: 991px){
+    .main{
+        &__title{
+            &--content{
+                font-size: 24px;
+            }
+        }
+    }
+    .popup__content {
+        h2{
+            font-size: 24px;
+        }
+        .main-content {
+            width: 720px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 767px){
+    .popup__content {
+        h2{
+            font-size:22px;
+        }
+        .main-content {
+            width: 440px !important;
+        }
+    }
+    .mobile--hidden{
+        display: none;
+    }
+
+    .main {
+        &__title {
+            &--content {
+                font-size: 22px;
+            }
+        }
+    }
+
+    .his__box{
+        table{
+            width: 100% !important;
+        }
+    }
+
+    .table__content {
+        overflow: hidden;
+        overflow-x: scroll;
+        table-layout: fixed;
+    }
+    .cus-detail__content .tb_label{
+        width: 100px;
+    }
+
+    #list-customer {
+        .main__banner {
+            height: auto;
+            padding: 15px;
+        }
+
+        .banner-interactive {
+            justify-content: left;
+            /*margin-bottom: 20px;*/
+            height: auto;
+            text-align: left;
+            .group-btn{
+                width: auto;
+            }
+        }
+    }
+
+    .main__title--content{
+        line-height: 35px;
+    }
+
+    .content-page > .content{
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .list__top {
+        .date {
+            span {
+                width: 20%;
+                display: inline-block;
+            }
+
+            .input {
+                width: 90%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1600px){
+    .list__local .add-file {
+        max-width: 37%;
+    }
+}

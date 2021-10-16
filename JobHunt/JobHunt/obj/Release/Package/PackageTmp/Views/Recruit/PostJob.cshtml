@@ -1,0 +1,185 @@
+﻿@using JobHunt.BU.DTO
+@using JobHunt.BU.Manage
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Đăng tin tuyển dụng";
+    Layout = "~/Views/Shared/_LayoutLogged.cshtml";
+
+    var Recruit = new RecruitManage().GetRecruitInfoByIdAspNetUser(User.Identity.GetUserId());
+}
+@Html.Hidden("TypeFix", (int)JobHunt.BU.Common.Enum.TypeFix.Add)
+<div class="col-lg-9 column">
+    <div class="padding-left">
+        <div class="profile-title">
+            <h3>Đăng tin tuyển dụng</h3>
+        </div>
+        <div class="profile-form-edit upload-cv-right">
+            <form id="valid-postjob">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <span class="pf-title">Tiêu đề<span class="red">(*)</span></span>
+                        <div class="pf-field">
+                            <input type="text" placeholder="VD: Cần tuyển nhân viên kinh doanh" id="RJTitle" name="RJTitle" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <span class="pf-title">Công việc<span class="red">(*)</span></span>
+                        <div class="pf-field">
+                            @Html.DropDownList("RJ_ProfessionId", (IEnumerable<SelectListItem>)ViewBag.ListProfesstions, "--- Việc làm ---", new { @class = "chosen" })
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <span class="pf-title">Vị trí cần tuyển<span class="red">(*)</span></span>
+                        <div class="pf-field">
+                            <input type="text" id="RJPosition" name="RJPosition" placeholder="VS: Nhân viên kinh doanh" required="required">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Số lượng<span class="red">(*)</span></span>
+                        <div class="pf-field">
+                            <input type="text" id="RJAmount" placeholder="VD: 5" name="RJAmount" required>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        <span class="pf-title">Lương<span class="red">(*)</span></span>
+                        <div class="pf-field">
+                            @Html.DropDownList("RJ_SalaryId", (IEnumerable<SelectListItem>)ViewBag.ListSalaries, "--- Mức lương ---", new { @class = "chosen" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Trình độ<span class="red">(*)</span></span>
+                        <div class="pf-field">
+                            @Html.DropDownList("RJ_LevelId", (IEnumerable<SelectListItem>)ViewBag.ListLevels, "--- Trình độ ---", new { @class = "chosen" })
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Kinh nghiệm<span class="red">(*)</span></span>
+                        <div class="pf-field">
+                            @Html.DropDownList("RJ_ExperienceId", (IEnumerable<SelectListItem>)ViewBag.ListExperiences, "--- Kinh nghiệm ---", new { @class = "chosen" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Hình thức làm việc<span class="red">(*)</span></span>
+                        <div class="pf-field">
+                            @Html.DropDownList("RJ_WorkTypeId", (IEnumerable<SelectListItem>)ViewBag.ListWorkTypes, "--- Hình thức làm việc ---", new { @class = "chosen" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Giới tính<span class="red">(*)</span></span>
+                        <div class="pf-field">
+                            @*<select data-placeholder="Hãy chọn giới tính của bạn" class="chosen" style="display: none;" id="RJGender">
+                                <option value="1">Nam</option>
+                                <option value="0">Nữ</option>
+                                <option value="-1">Khác</option>
+                            </select>*@
+                            @Html.DropDownList("RJGender",
+                            new List<SelectListItem>
+                            {
+                            new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.Gender.Boy, Text = "Nam"},
+                            new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.Gender.Girl, Text = "Nữ"},
+                            new SelectListItem {Value = ""+(int?)JobHunt.BU.Common.Enum.Gender.NoRequired, Text = "Không yêu cầu" },
+                            new SelectListItem {Value = ""+(int?)JobHunt.BU.Common.Enum.Gender.Boy, Text = "Khác" }
+                            }, new { @class = "chosen form-control" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Hết hạn<span class="red">(*)</span></span>
+                        <div class="pf-field">
+                            <input type="date" id="RJExpirationDate" name="RJExpirationDate" required>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-12">
+                        <span class="pf-title">Mô tả<span class="red">(*)</span></span>
+                        <section id="editor">
+                            <div class="summernote" id="RJ_Describe"></div>
+                        </section>
+                    </div>
+                    <div class="col-lg-12">
+                        <span class="pf-title">Yêu cầu công việc<span class="red">(*)</span></span>
+                        <section id="editor1">
+                            <div class="summernote" id="RJ_Require"></div>
+                        </section>
+                    </div>
+                    <div class="col-lg-12">
+                        <span class="pf-title">Quyền lợi<span class="red">(*)</span></span>
+                        <section id="editor2">
+                            <div class="summernote" id="RJBenefit"></div>
+                        </section>
+                    </div>
+
+                    @*Thông tin liên hệ*@
+                    <div class="tilepostjob col-lg-12">
+                        <div class="profile-title">
+                            <h3 style="padding-left:0;">Thông tin liên hệ<span class="red">(*)</span></h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Email liên hệ</span>
+                        <div class="pf-field">
+                            <input type="text" id="RJEmailContact" value="@Recruit.RIEmail" name="RJEmailContact" placeholder="VD: nguyenvana@gmail.com" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Tên liên hệ</span>
+                        <div class="pf-field">
+                            <input type="text" id="RJNameContact" value="@Recruit.RIFullName" name="RJNameContact" placeholder="Nguyễn Văn A" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Điện thoại liên hệ</span>
+                        <div class="pf-field">
+                            <input type="text" id="RJPhoneContact" value="@Recruit.RIPhone" name="RJPhoneContact" placeholder="VD: 03366515294" required>
+                        </div>
+                    </div>
+
+                    @*Địa chỉ làm việc*@
+                    <div class="tilepostjob col-lg-12">
+                        <div class="profile-title">
+                            <h3 style="padding-left:0;">Địa chỉ làm việc<span class="red">(*)</span></h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Tỉnh/Thành phố</span>
+                        <div class="pf-field">
+                            @Html.DropDownList("RJCityId", (IEnumerable<SelectListItem>)ViewBag.ListCities, "-- Chọn Tỉnh/Thành phố --", new { @class = "chosen" })
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Quận/Huyện</span>
+                        <div class="pf-field chosen-container-single">
+                            <select data-placeholder="Chọn Quận/Huyện" id="RJDistrictId" class="chosen-single dropdown-address">
+                                <option value="">-- Chọn Quận/Huyện --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Xã/Phường</span>
+                        <div class="pf-field chosen-container-single">
+                            <select data-placeholder="Chọn Phường/Xã" class="chosen-single dropdown-address" id="RJ_WardId">
+                                <option value="">-- Chọn Phường/Xã --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Địa chỉ</span>
+                        <div class="pf-field">
+                            <input id="RJ_WorkPlace" name="RJ_WorkPlace" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <button type="submit" id="postjob">Đăng tin tuyển dụng</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

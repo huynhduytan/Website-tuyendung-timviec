@@ -1,0 +1,314 @@
+﻿@model JobHunt.BU.DTO.RecruitJobDTO
+@using JobHunt.BU.DTO
+@using JobHunt.BU.Manage
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = Model.RJTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    //List recent jobs
+    var ListRecentJobs = (List<RecruitJobDTO>)ViewBag.ListRecentJobs;
+
+
+    var UserId = User.Identity.GetUserId();
+
+
+    //class check save job
+    var classCheckSJ = "";
+
+    var GetInfoCandidateByIdUser = new CandidateManage().GetCandidateInfoByIdAspNetUser(UserId);
+
+    if (!string.IsNullOrEmpty(UserId))
+    {
+        var CheckSaveJob = new CandidateManage().CheckSaveJob(UserId, Model.RecruitJobId);
+
+        if (CheckSaveJob != 0)
+        {
+            classCheckSJ = "active";
+        }
+        else
+        {
+            classCheckSJ = "";
+        }
+    }
+    if (Model.CountDays == 0)
+    {
+        Model.CountDays = 1;
+    }
+    var sttJob = "";
+    if (Model.RJStatus == (int)JobHunt.BU.Common.Enum.EnumStatusJob.Approvaling)
+    {
+        sttJob = "Chưa duyệt";
+    }
+    else if (Model.RJStatus == (int)JobHunt.BU.Common.Enum.EnumStatusJob.Active)
+    {
+        sttJob = "Đã duyệt";
+    }
+}
+
+@Html.Hidden("UserID", UserId)
+@if (Model.RecruitDTO != null)
+{
+    @Html.Hidden("JobID", Model.RecruitJobId)
+
+
+    <div class="container fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="inner-header parallax scrolly-invisible no-parallax" style="background: url(@Model.RecruitDTO.RICoverImage) 100% 100% no-repeat scroll transparent;">
+                    <h3>@Model.RecruitDTO.RIFullName</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="inner-header parallax scrolly-invisible no-parallax" style="background: url(/Assets/client/images/resource/mslider1.jpg) 100% 100% no-repeat scroll transparent;">
+                    <h3>BÀI ĐĂNG THUỘC ADMIN</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<section>
+    <div class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 column">
+                    <div class="job-single-sec">
+                        <div class="job-single-head2">
+                            <div class="job-title2">
+                                <h3>@Model.RJTitle @*<span class="red">(@sttJob)</span>*@</h3>
+                                <span class="job-is @Model.ClassWorkType job-detail-recentjob worktype-job job-detail-fix">@Model.WorkTypeDTO.WTName</span>
+
+                            </div>
+                            <ul class="tags-jobs">
+                                <li><i class="la la-map-marker"></i> @Model.RJ_WorkPlace</li>
+                                <li><i class="la la-money"></i> Lương : <span>@Model.SalaryDTO.SShow</span></li>
+                                <li><i class="la la-calendar-o"></i> Ngày đăng: @Model.RJPostDate.Value.ToString("dd/MM/yyyy")</li>
+                                <li><i class="la la-calendar-o"></i> Hết hạn: @Model.RJExpirationDate.Value.ToString("dd/MM/yyyy")</li>
+                            </ul>
+                            <span><strong>Vị trí</strong> : @Model.RJPosition</span>
+                        </div><!-- Job Head -->
+                        <div class="job-details">
+                            <h3>*MÔ TẢ CÔNG VIỆC</h3>
+                            <div class="main-describe">
+                                @Html.Raw(Model.RJ_Describe)
+                            </div>
+                            <h3>*YÊU CẦU</h3>
+                            <div class="main-describe">
+                                @Html.Raw(Model.RJ_Require)
+                            </div>
+                            <h3>*QUYỀN LỢI</h3>
+                            <div class="main-describe">
+                                @Html.Raw(Model.RJBenefit)
+                            </div>
+                        </div>
+                        <div class="share-bar">
+                            <span>Share</span><a href="#" title="" class="share-fb"><i class="fa fa-facebook"></i></a><a href="#" title="" class="share-twitter"><i class="fa fa-twitter"></i></a>
+                        </div>
+                        <div class="recent-jobs">
+                            <h3>Công việc phù hợp</h3>
+                            <div class="job-list-modern">
+                                <div class="job-listings-sec no-border">
+                                    @if (ListRecentJobs.Count > 0)
+                                    {
+                                        foreach (var item in ListRecentJobs.Take(5))
+                                        {
+                                            if (item.CountDays == 0)
+                                            {
+                                                item.CountDays = 1;
+                                            }
+                                            <div class="job-listing wtabs">
+                                                @if (item.RecruitDTO != null)
+                                                {
+                                                    <div class="job-title-sec">
+                                                        <div class="c-logo"> <img src="@item.RecruitDTO.RILogo" alt="" class="logo-company"> </div>
+                                                        <h3><a href="@Url.Action("DetailJob", "RecruitJob", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(item.RJTitle, item.RecruitJobId) })" title="">@item.RJTitle</a></h3>
+                                                        <span>@item.RecruitDTO.RIFullName</span>
+                                                        <div class="job-lctn"><i class="la la-map-marker"></i>@item.RJ_WorkPlace</div>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="job-title-sec">
+                                                        <div class="c-logo"> <img src="/Assets/client/images/resource/logo10.png" alt="" class="logo-company"> </div>
+                                                        <h3 class=""><a href="@Url.Action("DetailJob", "RecruitJob", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(item.RJTitle, item.RecruitJobId) })" title="" class="titlejob">@item.RJTitle</a></h3>
+                                                        <span>Bài đăng bởi admin</span>
+                                                        <div class="job-lctn"><i class="la la-map-marker"></i>@item.RJ_WorkPlace</div>
+                                                    </div>
+                                                }
+
+                                                <div class="job-style-bx">
+                                                    <span class="job-is job-detail-recentjob @item.ClassWorkType worktype-job">@item.WorkTypeDTO.WTName</span>
+                                                    <span class="fav-job" id="rc@(item.RecruitJobId)"><i class="la la-heart-o"></i></span>
+                                                    <i>@item.CountDays ngày</i>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 column">
+                    @if (Model.RecruitDTO != null)
+                    {
+                        <div class="job-single-head style2">
+                            <div class="job-thumb"> <img src="@Model.RecruitDTO.RILogo" alt="" style="width: 124px; height: 124px" class="logo-company"> </div>
+                            <div class="job-head-info">
+                                <h4><a href="@Url.Action("DetailRecruit", "Recruit", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(Model.RecruitDTO.RICompanyName, Model.RecruitDTO.RecruitId) })">@Model.RecruitDTO.RIFullName</a></h4>
+                                <span>@Model.RecruitDTO.RIAddress</span>
+                                <p><i class="la la-unlink"></i> <a href="@Model.RecruitDTO.RIWebsite">@Model.RecruitDTO.RIWebsite</a></p>
+                                <p><i class="la la-phone"></i> @Model.RecruitDTO.RIPhone</p>
+                                <p><i class="la la-envelope-o"></i> @Model.RecruitDTO.RIEmail</p>
+                            </div>
+                        </div>
+                    }
+
+                    @if (Model.RJExpirationDate > DateTime.Now)
+                    {
+                        if (Request.IsAuthenticated && User.IsInRole("Người tìm việc"))
+                        {
+
+                            <button type="button" class="apply-thisjob" id="apply-job" data-toggle="modal" data-target="#exampleModalCenter" style="">
+                                <i class="la la-paper-plane"></i>
+                                Nộp đơn
+                            </button>
+                        }
+                    }
+                    else
+                    {
+                        <div class="apply-thisjob">
+                            <p style="color: red">Đã hết hạn</p>
+
+                        </div>
+                    }
+
+
+                    <div class="apply-alternative">
+                        @*<a href="#" title=""><i class="fa fa-linkedin"></i> Apply with Linkedin</a>*@
+                        @if (Request.IsAuthenticated && User.IsInRole("Người tìm việc"))
+                        {
+                            if (Model.RJExpirationDate > DateTime.Now)
+                            {
+                                <span class="fav-job @classCheckSJ" id="rc@(Model.RecruitJobId)"><i class="la la-heart-o"></i> Lưu công việc</span>
+                            }
+                            else { }
+                        }
+                        @*<span><i class="la la-heart-o"></i> Shortlist</span>*@
+                    </div>
+                    <div class="job-overview">
+                        <h3>Tổng quan</h3>
+                        <ul>
+                            <li><i class="la la-money"></i><h3>Lương</h3><span>@Model.SalaryDTO.SShow</span></li>
+                            <li><i class="la la-mars-double"></i><h3>Giới tính</h3><span>@Model.GenderName</span></li>
+                            <li><i class="la la-thumb-tack"></i><h3>Trình độ</h3><span>@Model.LevelInfoDTO.LIName</span></li>
+                            <li><i class="la la-puzzle-piece"></i><h3>Hình thức làm việc</h3><span>@Model.WorkTypeDTO.WTName</span></li>
+                            <li><i class="la la-shield"></i><h3>Kinh nghiệm</h3><span>@Model.ExperienceDTO.EShow</span></li>
+                        </ul>
+                    </div><!-- Job Overview -->
+                    <div class="extra-job-info">
+                        <span><i class="la la-clock-o"></i><strong>@Model.CountDays</strong> ngày</span>
+                        <span><i class="la la-search-plus"></i><strong>@Model.RJCount</strong> Lượt xem</span>
+                        <span><i class="la la-file-text"></i><strong>@Model.AppliedCount</strong> Lượt ứng tuyển</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*Nộp đơn ứng tuyển*@
+@if (User.IsInRole("Người tìm việc"))
+{
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Bạn đang ứng tuyển vào vị trí<span class="title-job">@Model.RJTitle</span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    @if (!string.IsNullOrEmpty(UserId))
+                    {
+                        <div id="info-candidate">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="c-logo"> <img src="@GetInfoCandidateByIdUser.CPAvatar" alt="Logo công ty"> </div>
+                                </div>
+                                <div class="col-lg-8"><span>@GetInfoCandidateByIdUser.CddFullName</span></div>
+                            </div>
+                        </div>
+                        <div id="main-info-candidate">
+                            <div class="row">
+                                <div class="col-lg-4" style="text-align: right;">
+                                    Email:
+                                </div>
+                                <div class="col-lg-8" style="text-align: left;"><span style="line-height: 50px;">@GetInfoCandidateByIdUser.CddEmail</span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4" style="text-align: right;">
+                                    Số điện thoại:
+                                </div>
+                                <div class="col-lg-8" style="text-align: left;">
+                                    @Html.TextBox("PhoneCandidate", GetInfoCandidateByIdUser.AspNetUserDTO.PhoneNumber, new { @class = "form-control input-sm confirm-phone" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4" style="text-align: right;">
+                                    CV:
+                                </div>
+                                <div class="col-lg-8" style="text-align: left;">
+                                    @if (!string.IsNullOrEmpty(GetInfoCandidateByIdUser.nameFileCV))
+                                    {
+                                        <div class="">
+                                            <input tabindex="5" type="radio" name="resumeApply" id="optionsRadios1" value="@GetInfoCandidateByIdUser.nameFileCV" data-type="last_attachment" class="option-resume" checked />
+                                            <span>@GetInfoCandidateByIdUser.nameFileCV</span>
+                                        </div>
+                                    }
+                                    <div class="new-resume">
+                                        <input tabindex="5" type="radio" name="resumeApply" id="optionsRadios0" value="" data-type="last_attachment" class="option-resume display-inline" />
+                                        <div class="main-upload display-inline">
+                                            <input type="file" name="name" value="" class="bt_input uploadfilecv" id="fileCV" />
+                                            <div class="text-upload">
+                                                <span class="icon_upload_file"></span>
+                                                <b>ĐÍNH KÈM HỒ SƠ</b>
+                                            </div>
+                                        </div>
+                                        <div class="textfile">
+                                            <span class="namefile"></span>
+                                        </div>
+                                        <div class="notetext">
+                                            (Dạng file .doc, .docx,.pdf dung lượng <=2MB)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Bạn cần đăng nhập trước</p>
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-primary" id="applyjob">Nộp đơn</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

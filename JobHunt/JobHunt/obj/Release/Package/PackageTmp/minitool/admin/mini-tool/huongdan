@@ -1,0 +1,16 @@
+b1: chạy yarn hoặc npm install để cài node_modules
+
+b2: cấu hình các file gốc và file đích trong config.json
+
+b2: chạy lệnh grunt + task_name 
+  - grunt         : chạy tất cả các task trừ task copy. 
+                    Lắng nghe sự thay đổi của các file được khai báo trong file cấu hình 
+  - grunt watch   : chạy task watch. Lắng nghe các file dc cấu hình
+  - grunt copy    : chạy task copy
+  - grunt pug     : chạy task pug. Render .pug to .php hoặc .html
+  - grunt sass    : chạy task sass. Render .scss to .css
+  - grunt concat  : chạy task concat. Merger các file .js lại làm 1
+  - grunt uglify  : chạy task uglify. Minify các file .js lại thành 1 file.min.js
+
+-----note-----    : mini-tool dùng để cho team work và merger code giữa FE và BE  
+

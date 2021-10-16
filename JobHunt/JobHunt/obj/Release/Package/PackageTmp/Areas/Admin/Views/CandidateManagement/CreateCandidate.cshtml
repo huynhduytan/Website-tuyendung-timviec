@@ -1,0 +1,330 @@
+﻿@using JobHunt.BU.Manage
+@using JobHunt.BU.DTO
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Thêm thành viên || JobHunt";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Hidden("TypeAccount", 2)
+<div class="wrap__content" id="detail-customer">
+    <section class="content cus-detail main__content">
+        <div class="cus-detail__top main__banner">
+            <div>
+                <div class="">
+                    <div class="main__title text-center">
+                        <h1 class="main__title--content">Thêm thành viên</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-flud">
+            <div class="content__inner main-content">
+                <div class="cus-detail__viewmini">
+                    <div class="cus-detail__viewmini--content">
+                        <div class="row">
+                            <div class="col-xl-3 col-md-12">
+                                <div class="cus-detail__viewmini--avatar edit-avatar">
+                                    <a title="Ảnh đại diện" style="width: 148px; height: 148px; margin: auto;">
+                                        <img src="~/Assets/client/images/avatar-default.png" id="avatarlink" style="width: 148px; height: 148px" />
+                                        <div class="edit-avatar__btn avatar-fix">
+                                            <img src="~/Assets/client/images/camera.png" />
+                                            <p>Cập nhật</p>
+                                        </div>
+                                    </a>
+                                    <input type="file" name="" value="" class="disabled" id="updateavatar" />
+                                    <input type="file" name="" value="" class="disabled" />
+                                </div>
+                            </div>
+                            <div class="col-xl-9 col-md-12 mobile--hidden">
+                                <div class="row">
+                                    <div class="col-xl-6 col-sm-6">
+                                        <table class="table__view">
+                                            <tr>
+                                                <td class="tb_label bold">Tên đăng nhập:</td>
+                                                <td class="input-field"><input class="input-base readonly" type="text" name="" value="" id="" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tb_label bold">Tên đầy đủ:</td>
+                                                <td class="input-field"><input class="input-base readonly" type="text" name="" value="" id="" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tb_label bold">Ngày đăng ký:</td>
+                                                <td class="input-field"><input class="input-base readonly" type="datetime" name="" value="" id="" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="col-xl-6 col-sm-6">
+                                        <table class="table__view">
+                                            <tr>
+                                                <td class="tb_label bold">Số điện thoại:</td>
+                                                <td class="input-field"><input class="input-base readonly" type="text" name="" value="" id="" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tb_label bold">Email:</td>
+                                                <td class="input-field"><input class="input-base readonly" type="text" name="" value="" id="" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tb_label bold">Địa chỉ:</td>
+                                                <td class="input-field"><input class="input-base readonly" type="text" name="" value="" id="" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="clear-fix"></div>
+                            </div>
+                        </div>
+                        <div class="clear-fix"></div>
+                    </div>
+                </div>
+                <div class="cus-detail__view cus-edit">
+                    <form id="updatecandidate-form" class="candidate-form">
+                        <div class="cus-detail__content">
+                            <div class="cus-detail__content--title">
+                                <h3>Thông tin thành viên<span class="red">(*)</span></h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-6 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Tên đăng nhập<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("CddUserName", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Tên đăng nhập: nguyenvana" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Mật khẩu<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("CddPassword", new { htmlAttributes = new { @class = "input-base passwordtext textinput", placeholder = "Mật khẩu: Nguyenvana2019", @type = "password" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Xác nhận MK<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("CddPasswordConfirm", new { htmlAttributes = new { @class = "input-base passwordtext textinput", placeholder = "Xác nhận mật khẩu: Nguyenvana2019", @type = "password" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Tên đầy đủ<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("CddFullName", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Tên đầy đủ: Nguyễn Văn A" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Tuổi<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("CddAge", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Tuổi: 23" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Giới tính<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("CddSex",
+                                            new List<SelectListItem>
+                                            {
+                                                new SelectListItem { Value = "1", Text = "Nam"},
+                                                new SelectListItem { Value = "2", Text = "Nữ"},
+                                                new SelectListItem {Value = "0", Text = "Khác" }
+                                            }, new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Công việc<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("CP_ProfessionId", (IEnumerable<SelectListItem>)ViewBag.ListProfesstions, "--- Công việc ---", new { @class = "chosen-city form-control" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-xl-6 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Mức lương<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("CP_SalaryId", (IEnumerable<SelectListItem>)ViewBag.ListSalaries, "--- Mức lương ---", new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Kinh nghiệm<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("CP_ExperienceId", (IEnumerable<SelectListItem>)ViewBag.ListExperiences, "--- Kinh nghiệm ---", new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Trình độ<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("CP_LevelId", (IEnumerable<SelectListItem>)ViewBag.ListLevels, "--- Trình độ ---", new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">HT làm việc<span class="red">(*):</span></td>
+                                            <td class="input-field date">
+                                                @Html.DropDownList("CP_WorkTypeId", (IEnumerable<SelectListItem>)ViewBag.ListWorkTypes, "--- Hình thức làm việc ---", new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Mô tả bản thân<span class="red">(*):</span></td>
+                                            <td class="input-field date">
+                                                @Html.TextArea("CddAbout", new { @class = "chosen form-control", @placeholder = "Mô tả bản thân: Sinh viên đại học Công Nghiệp Hà Nội, khoa CNTT, ..." })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Mô tả KN<span class="red">(*):</span></td>
+                                            <td class="input-field date">
+                                                @Html.TextArea("CPExperience", new { @class = "chosen form-control", @placeholder = "Mô tả kinh nghiệm: Đã có 1 năm về .NET, làm việc nhóm, ..." })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Trạng thái<span class="red">(*):</span></td>
+                                            <td class="input-field date">
+                                                @Html.DropDownList("CPStatus",
+                                    new List<SelectListItem>
+                                    {
+                                        new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.StatusCandidate.Active, Text = "Hoạt động"},
+                                        new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.StatusCandidate.Block, Text = "Tạm ngừng"},
+                                        new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.StatusCandidate.Approvaling, Text = "Chờ xét duyệt"},
+
+                                    }, new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="cus-detail__content">
+                            <div class="cus-detail__content--title">
+                                <h3>Thông tin liên hệ</h3>@*<span class="red">(*)</span>*@
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-6 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Số điện thoại<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("CddPhone", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Số điện thoại: 0336515294" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Email<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("CddEmail", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Email: nguyenvana@gmail.com" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Facebook:</td>
+                                            <td class="input-field">
+                                                @Html.Editor("CddFacebook", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Link facebook: https://facebook.com/duongtiendatt" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Google:</td>
+                                            <td class="input-field">
+                                                @Html.Editor("CddGoogle", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Link google" } })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-xl-6 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Tỉnh/Thành phố<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("Cdd_CityId", (IEnumerable<SelectListItem>)ViewBag.ListCities, "Hãy chọn Tỉnh/Thành phố", new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Quận/Huyện:</td>
+                                            <td class="input-field">
+                                                <select data-placeholder="Chọn Quận/Huyện" id="Cdd_DistrictId" class="chosen-single form-control" style="color: black">
+                                                    <option value>-- Chọn Quận/Huyện --</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Phường/Xã:</td>
+                                            <td class="input-field">
+                                                <select data-placeholder="Chọn Phường/Xã" class="chosen-single form-control" id="Cdd_WardId" style="color: black">
+                                                    <option value>-- Chọn Phường/Xã --</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Địa chỉ<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("CddAddress", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Địa chỉ: TDP Ngọa Long - Minh Khai - Từ Liêm - Hà Nội" } })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cus-detail__content col-md-12">
+                            <div class="cus-detail__content--title">
+                                <h3>CV đính kèm</h3>
+                            </div>
+                            <div class="row paddingdiv">
+                                <div class="col-lg-4">
+                                    <p class="tb_label bold" style="width: 100%; text-align: right">
+                                        Chọn Hồ sơ đính kèm<span class="red">(*)</span>:
+                                    </p>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="main-upload">
+                                        <input type="file" name="name" value="" class="bt_input uploadfilecv" id="fileCV" />
+                                        <div class="text-upload">
+                                            <span class="icon_upload_file"></span>
+                                            <b>ĐÍNH KÈM HỒ SƠ</b>
+                                        </div>
+                                    </div>
+                                    <div class="textfile">
+                                        <span class="namefile"></span>
+                                    </div>
+                                    <div class="notetext">
+                                        (Dạng file .doc, .docx,.pdf dung lượng <=2MB)
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4" style="width: 100%; text-align: right">
+                                    <span class="pf-title tb_label bold">Mô tả:</span>
+                                </div>
+                                <div class="col-lg-8">
+                                    @Html.TextArea("CddDescribeCV", new { @class = "form-control", @placeholder = "Mô tả CV: CV gồm các kỹ năng .NET, tiếng anh, ..." })
+                                </div>
+                            </div>
+                            <div class="clear-fix"></div>
+                        </div>
+                        @*</div>*@
+
+                        <div class="form-btn text-center">
+                            <button class="btn btn-primary margin-right-30 updatecandidate" type="submit" id="candidate-1">Tạo</button>
+                            <a href="/Admin/Customer" class="btn danger bt-danger btn--cancel-edit-cm">Hủy</a>
+                            @*<a class="btn btn-primary btn-del-cm danger" onclick="document.showDel('cm')" input-id-cm="" page-cm="detail">Xóa</a>*@
+                        </div>
+                    </form>
+                    <div class="popup--del popup--base popup--del-cm disabled">
+                        <div class="container-flud">
+                            <div class="body-layer layer-cm popup__bg"></div>
+                            <div class="pop-up-del pop-up-del-cm popup__content text-center">
+                                <div class="popup__content2">
+                                    <h3>Thông báo</h3>
+                                    <p>Bạn có muốn xóa khách hàng này không?</p>
+                                    <div>
+                                        <a title="Đồng ý" yes="yes" class="bt-success success btn-yes-cm">Đồng ý</a>
+                                        <a class="btn-primary bt-close btn-close-cm" title="Hủy bỏ" cancel="cancel">Hủy bỏ</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*list history*@
+    </section>
+</div>
+

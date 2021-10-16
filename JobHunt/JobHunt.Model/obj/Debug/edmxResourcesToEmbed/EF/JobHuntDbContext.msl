@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JobHuntModelStoreContainer" CdmEntityContainer="JobHuntEntities">
+    <EntitySetMapping Name="Advertisements">
+      <EntityTypeMapping TypeName="JobHuntModel.Advertisement">
+        <MappingFragment StoreEntitySet="Advertisement">
+          <ScalarProperty Name="AdvertisementId" ColumnName="AdvertisementId" />
+          <ScalarProperty Name="AdStartDate" ColumnName="AdStartDate" />
+          <ScalarProperty Name="AdEndDate" ColumnName="AdEndDate" />
+          <ScalarProperty Name="AdPosition" ColumnName="AdPosition" />
+          <ScalarProperty Name="AdStatus" ColumnName="AdStatus" />
+          <ScalarProperty Name="AdName" ColumnName="AdName" />
+          <ScalarProperty Name="AdPhone" ColumnName="AdPhone" />
+          <ScalarProperty Name="AdEmail" ColumnName="AdEmail" />
+          <ScalarProperty Name="AdAddress" ColumnName="AdAddress" />
+          <ScalarProperty Name="AdLink" ColumnName="AdLink" />
+          <ScalarProperty Name="AdImage" ColumnName="AdImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="JobHuntModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="JobHuntModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="JobHuntModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="JobHuntModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Candidates">
+      <EntityTypeMapping TypeName="JobHuntModel.Candidate">
+        <MappingFragment StoreEntitySet="Candidate">
+          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+          <ScalarProperty Name="Cdd_AspNetUserId" ColumnName="Cdd_AspNetUserId" />
+          <ScalarProperty Name="CP_ProfessionId" ColumnName="CP_ProfessionId" />
+          <ScalarProperty Name="CP_LevelId" ColumnName="CP_LevelId" />
+          <ScalarProperty Name="CP_ExperienceId" ColumnName="CP_ExperienceId" />
+          <ScalarProperty Name="CP_SalaryId" ColumnName="CP_SalaryId" />
+          <ScalarProperty Name="CP_WorkTypeId" ColumnName="CP_WorkTypeId" />
+          <ScalarProperty Name="CddUserName" ColumnName="CddUserName" />
+          <ScalarProperty Name="CddPassword" ColumnName="CddPassword" />
+          <ScalarProperty Name="CddFullName" ColumnName="CddFullName" />
+          <ScalarProperty Name="CPAvatar" ColumnName="CPAvatar" />
+          <ScalarProperty Name="CddSex" ColumnName="CddSex" />
+          <ScalarProperty Name="CddAbout" ColumnName="CddAbout" />
+          <ScalarProperty Name="CddAddress" ColumnName="CddAddress" />
+          <ScalarProperty Name="CPPosition" ColumnName="CPPosition" />
+          <ScalarProperty Name="CPExperience" ColumnName="CPExperience" />
+          <ScalarProperty Name="CPSpeciality" ColumnName="CPSpeciality" />
+          <ScalarProperty Name="CPPostDate" ColumnName="CPPostDate" />
+          <ScalarProperty Name="CPStatus" ColumnName="CPStatus" />
+          <ScalarProperty Name="Cdd_CityId" ColumnName="Cdd_CityId" />
+          <ScalarProperty Name="CddPhone" ColumnName="CddPhone" />
+          <ScalarProperty Name="CddEmail" ColumnName="CddEmail" />
+          <ScalarProperty Name="CddAge" ColumnName="CddAge" />
+          <ScalarProperty Name="CddRegisterDate" ColumnName="CddRegisterDate" />
+          <ScalarProperty Name="CddFacebook" ColumnName="CddFacebook" />
+          <ScalarProperty Name="CddGoogle" ColumnName="CddGoogle" />
+          <ScalarProperty Name="Cdd_DistrictId" ColumnName="Cdd_DistrictId" />
+          <ScalarProperty Name="Cdd_WardId" ColumnName="Cdd_WardId" />
+          <ScalarProperty Name="CddPathCV" ColumnName="CddPathCV" />
+          <ScalarProperty Name="CddDescribeCV" ColumnName="CddDescribeCV" />
+          <ScalarProperty Name="CddBirthday" ColumnName="CddBirthday" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CandidatePostResumes">
+      <EntityTypeMapping TypeName="JobHuntModel.CandidatePostResume">
+        <MappingFragment StoreEntitySet="CandidatePostResume">
+          <ScalarProperty Name="CandidatePostResumeId" ColumnName="CandidatePostResumeId" />
+          <ScalarProperty Name="CPR_CandidateId" ColumnName="CPR_CandidateId" />
+          <ScalarProperty Name="CPR_RecruitJobId" ColumnName="CPR_RecruitJobId" />
+          <ScalarProperty Name="CPRPostDate" ColumnName="CPRPostDate" />
+          <ScalarProperty Name="CPRStatus" ColumnName="CPRStatus" />
+          <ScalarProperty Name="CddPhone" ColumnName="CddPhone" />
+          <ScalarProperty Name="CddPathFileCV" ColumnName="CddPathFileCV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Careers">
+      <EntityTypeMapping TypeName="JobHuntModel.Career">
+        <MappingFragment StoreEntitySet="Career">
+          <ScalarProperty Name="CareerId" ColumnName="CareerId" />
+          <ScalarProperty Name="CareerName" ColumnName="CareerName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="JobHuntModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CName" ColumnName="CName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="JobHuntModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="CName" ColumnName="CName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanySizes">
+      <EntityTypeMapping TypeName="JobHuntModel.CompanySize">
+        <MappingFragment StoreEntitySet="CompanySize">
+          <ScalarProperty Name="CompanySizeId" ColumnName="CompanySizeId" />
+          <ScalarProperty Name="CSMin" ColumnName="CSMin" />
+          <ScalarProperty Name="CSMax" ColumnName="CSMax" />
+          <ScalarProperty Name="CSShow" ColumnName="CSShow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Districts">
+      <EntityTypeMapping TypeName="JobHuntModel.District">
+        <MappingFragment StoreEntitySet="District">
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="DT_CityId" ColumnName="DT_CityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Experiences">
+      <EntityTypeMapping TypeName="JobHuntModel.Experience">
+        <MappingFragment StoreEntitySet="Experience">
+          <ScalarProperty Name="ExperienceId" ColumnName="ExperienceId" />
+          <ScalarProperty Name="EMin" ColumnName="EMin" />
+          <ScalarProperty Name="EMax" ColumnName="EMax" />
+          <ScalarProperty Name="EShow" ColumnName="EShow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LevelInfoes">
+      <EntityTypeMapping TypeName="JobHuntModel.LevelInfo">
+        <MappingFragment StoreEntitySet="LevelInfo">
+          <ScalarProperty Name="LevelInfoId" ColumnName="LevelInfoId" />
+          <ScalarProperty Name="LIName" ColumnName="LIName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="JobHuntModel.New">
+        <MappingFragment StoreEntitySet="New">
+          <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+          <ScalarProperty Name="NTitle" ColumnName="NTitle" />
+          <ScalarProperty Name="NQuote" ColumnName="NQuote" />
+          <ScalarProperty Name="NDetail" ColumnName="NDetail" />
+          <ScalarProperty Name="NPostDate" ColumnName="NPostDate" />
+          <ScalarProperty Name="NPublicDate" ColumnName="NPublicDate" />
+          <ScalarProperty Name="NType" ColumnName="NType" />
+          <ScalarProperty Name="N_WebmasterInfoId" ColumnName="N_WebmasterInfoId" />
+          <ScalarProperty Name="N_CategoryId" ColumnName="N_CategoryId" />
+          <ScalarProperty Name="Nstatus" ColumnName="Nstatus" />
+          <ScalarProperty Name="NAvatar" ColumnName="NAvatar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Professions">
+      <EntityTypeMapping TypeName="JobHuntModel.Profession">
+        <MappingFragment StoreEntitySet="Profession">
+          <ScalarProperty Name="ProfessionId" ColumnName="ProfessionId" />
+          <ScalarProperty Name="PFCareerId" ColumnName="PFCareerId" />
+          <ScalarProperty Name="PFName" ColumnName="PFName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recruits">
+      <EntityTypeMapping TypeName="JobHuntModel.Recruit">
+        <MappingFragment StoreEntitySet="Recruit">
+          <ScalarProperty Name="RecruitId" ColumnName="RecruitId" />
+          <ScalarProperty Name="RI_AspNetUserId" ColumnName="RI_AspNetUserId" />
+          <ScalarProperty Name="RIUserName" ColumnName="RIUserName" />
+          <ScalarProperty Name="RIPassword" ColumnName="RIPassword" />
+          <ScalarProperty Name="RIFullName" ColumnName="RIFullName" />
+          <ScalarProperty Name="RIEmail" ColumnName="RIEmail" />
+          <ScalarProperty Name="RICompanyName" ColumnName="RICompanyName" />
+          <ScalarProperty Name="RIAbout" ColumnName="RIAbout" />
+          <ScalarProperty Name="RILogo" ColumnName="RILogo" />
+          <ScalarProperty Name="RIAddress" ColumnName="RIAddress" />
+          <ScalarProperty Name="RIPhone" ColumnName="RIPhone" />
+          <ScalarProperty Name="RIRegisterDate" ColumnName="RIRegisterDate" />
+          <ScalarProperty Name="RIStatus" ColumnName="RIStatus" />
+          <ScalarProperty Name="RIWebsite" ColumnName="RIWebsite" />
+          <ScalarProperty Name="RI_CityId" ColumnName="RI_CityId" />
+          <ScalarProperty Name="RI_DistrictId" ColumnName="RI_DistrictId" />
+          <ScalarProperty Name="RI_WardId" ColumnName="RI_WardId" />
+          <ScalarProperty Name="FoundedYear" ColumnName="FoundedYear" />
+          <ScalarProperty Name="RI_CompanySizeId" ColumnName="RI_CompanySizeId" />
+          <ScalarProperty Name="RI_ProfessionId" ColumnName="RI_ProfessionId" />
+          <ScalarProperty Name="RICoverImage" ColumnName="RICoverImage" />
+          <ScalarProperty Name="RIAvatar" ColumnName="RIAvatar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecruitJobs">
+      <EntityTypeMapping TypeName="JobHuntModel.RecruitJob">
+        <MappingFragment StoreEntitySet="RecruitJob">
+          <ScalarProperty Name="RecruitJobId" ColumnName="RecruitJobId" />
+          <ScalarProperty Name="RJTitle" ColumnName="RJTitle" />
+          <ScalarProperty Name="RJPosition" ColumnName="RJPosition" />
+          <ScalarProperty Name="RJAddress" ColumnName="RJAddress" />
+          <ScalarProperty Name="RJAmount" ColumnName="RJAmount" />
+          <ScalarProperty Name="RJ_Describe" ColumnName="RJ_Describe" />
+          <ScalarProperty Name="RJ_Require" ColumnName="RJ_Require" />
+          <ScalarProperty Name="RJBenefit" ColumnName="RJBenefit" />
+          <ScalarProperty Name="RJ_WorkPlace" ColumnName="RJ_WorkPlace" />
+          <ScalarProperty Name="RJPostDate" ColumnName="RJPostDate" />
+          <ScalarProperty Name="RJExpirationDate" ColumnName="RJExpirationDate" />
+          <ScalarProperty Name="RJEmailContact" ColumnName="RJEmailContact" />
+          <ScalarProperty Name="RJNameContact" ColumnName="RJNameContact" />
+          <ScalarProperty Name="RJPhoneContact" ColumnName="RJPhoneContact" />
+          <ScalarProperty Name="RJGender" ColumnName="RJGender" />
+          <ScalarProperty Name="RJStatus" ColumnName="RJStatus" />
+          <ScalarProperty Name="RJType" ColumnName="RJType" />
+          <ScalarProperty Name="RJ_SalaryId" ColumnName="RJ_SalaryId" />
+          <ScalarProperty Name="RJ_ExperienceId" ColumnName="RJ_ExperienceId" />
+          <ScalarProperty Name="RJ_RecruitId" ColumnName="RJ_RecruitId" />
+          <ScalarProperty Name="RJCityId" ColumnName="RJCityId" />
+          <ScalarProperty Name="RJDistrictId" ColumnName="RJDistrictId" />
+          <ScalarProperty Name="RJ_WardId" ColumnName="RJ_WardId" />
+          <ScalarProperty Name="RJ_ProfessionId" ColumnName="RJ_ProfessionId" />
+          <ScalarProperty Name="RJ_LevelId" ColumnName="RJ_LevelId" />
+          <ScalarProperty Name="RJ_WorkTypeId" ColumnName="RJ_WorkTypeId" />
+          <ScalarProperty Name="RJCount" ColumnName="RJCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salaries">
+      <EntityTypeMapping TypeName="JobHuntModel.Salary">
+        <MappingFragment StoreEntitySet="Salary">
+          <ScalarProperty Name="SalaryId" ColumnName="SalaryId" />
+          <ScalarProperty Name="SMin" ColumnName="SMin" />
+          <ScalarProperty Name="SMax" ColumnName="SMax" />
+          <ScalarProperty Name="SShow" ColumnName="SShow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaveCandidates">
+      <EntityTypeMapping TypeName="JobHuntModel.SaveCandidate">
+        <MappingFragment StoreEntitySet="SaveCandidate">
+          <ScalarProperty Name="SaveCandidateId" ColumnName="SaveCandidateId" />
+          <ScalarProperty Name="SC_RecruitId" ColumnName="SC_RecruitId" />
+          <ScalarProperty Name="SC_CandidateId" ColumnName="SC_CandidateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaveJobs">
+      <EntityTypeMapping TypeName="JobHuntModel.SaveJob">
+        <MappingFragment StoreEntitySet="SaveJob">
+          <ScalarProperty Name="SaveJobId" ColumnName="SaveJobId" />
+          <ScalarProperty Name="SJ_CandidateId" ColumnName="SJ_CandidateId" />
+          <ScalarProperty Name="SJ_RecruitJobId" ColumnName="SJ_RecruitJobId" />
+          <ScalarProperty Name="SJStatus" ColumnName="SJStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SignUpNewsletters">
+      <EntityTypeMapping TypeName="JobHuntModel.SignUpNewsletter">
+        <MappingFragment StoreEntitySet="SignUpNewsletter">
+          <ScalarProperty Name="RegisterID" ColumnName="RegisterID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CheckNew" ColumnName="CheckNew" />
+          <ScalarProperty Name="CheckPost" ColumnName="CheckPost" />
+          <ScalarProperty Name="IdProfession" ColumnName="IdProfession" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wards">
+      <EntityTypeMapping TypeName="JobHuntModel.Ward">
+        <MappingFragment StoreEntitySet="Ward">
+          <ScalarProperty Name="WardId" ColumnName="WardId" />
+          <ScalarProperty Name="WardName" ColumnName="WardName" />
+          <ScalarProperty Name="W_DistrictId" ColumnName="W_DistrictId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WebmasterInfoes">
+      <EntityTypeMapping TypeName="JobHuntModel.WebmasterInfo">
+        <MappingFragment StoreEntitySet="WebmasterInfo">
+          <ScalarProperty Name="WebmasterInfoId" ColumnName="WebmasterInfoId" />
+          <ScalarProperty Name="WI_AspNetUserId" ColumnName="WI_AspNetUserId" />
+          <ScalarProperty Name="WIUserName" ColumnName="WIUserName" />
+          <ScalarProperty Name="WIPassword" ColumnName="WIPassword" />
+          <ScalarProperty Name="WIFullName" ColumnName="WIFullName" />
+          <ScalarProperty Name="WIType" ColumnName="WIType" />
+          <ScalarProperty Name="WIStatus" ColumnName="WIStatus" />
+          <ScalarProperty Name="WIGender" ColumnName="WIGender" />
+          <ScalarProperty Name="WIBirthDay" ColumnName="WIBirthDay" />
+          <ScalarProperty Name="WIDateStart" ColumnName="WIDateStart" />
+          <ScalarProperty Name="WIAddress" ColumnName="WIAddress" />
+          <ScalarProperty Name="WIPosition" ColumnName="WIPosition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Websites">
+      <EntityTypeMapping TypeName="JobHuntModel.Website">
+        <MappingFragment StoreEntitySet="Website">
+          <ScalarProperty Name="WebsiteId" ColumnName="WebsiteId" />
+          <ScalarProperty Name="WBanner" ColumnName="WBanner" />
+          <ScalarProperty Name="WFacebook" ColumnName="WFacebook" />
+          <ScalarProperty Name="WYoutube" ColumnName="WYoutube" />
+          <ScalarProperty Name="WEmail" ColumnName="WEmail" />
+          <ScalarProperty Name="WPhone" ColumnName="WPhone" />
+          <ScalarProperty Name="WBanner2" ColumnName="WBanner2" />
+          <ScalarProperty Name="WBanner3" ColumnName="WBanner3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkTypes">
+      <EntityTypeMapping TypeName="JobHuntModel.WorkType">
+        <MappingFragment StoreEntitySet="WorkType">
+          <ScalarProperty Name="WorkTypeId" ColumnName="WorkTypeId" />
+          <ScalarProperty Name="WTName" ColumnName="WTName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="JobHuntModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

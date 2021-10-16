@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9B36A916-5E49-4391-9DB1-0F570CA94DC8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JobHunt.Model</RootNamespace>
+    <AssemblyName>JobHunt.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAO\AdvertisementDAO.cs" />
+    <Compile Include="DAO\CandidateDAO.cs" />
+    <Compile Include="DAO\NewDAO.cs" />
+    <Compile Include="DAO\RecruitDAO.cs" />
+    <Compile Include="DAO\RecruitJobDAO.cs" />
+    <Compile Include="DAO\SignUpNewsletterDAO.cs" />
+    <Compile Include="DAO\WebmasterInfoDAO.cs" />
+    <Compile Include="EF\Advertisement.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AspNetRole.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AspNetUser.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AspNetUserClaim.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AspNetUserLogin.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Candidate.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\CandidatePostResume.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Career.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Category.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\City.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\CompanySize.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\District.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Experience.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\JobHuntDbContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobHuntDbContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\JobHuntDbContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\JobHuntDbContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobHuntDbContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF\LevelInfo.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\New.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Profession.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Recruit.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\RecruitJob.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Salary.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SaveCandidate.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SaveJob.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SignUpNewsletter.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Ward.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\WebmasterInfo.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Website.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\WorkType.cs">
+      <DependentUpon>JobHuntDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="EF\JobHuntDbContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>JobHuntDbContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EF\JobHuntDbContext.edmx.diagram">
+      <DependentUpon>JobHuntDbContext.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EF\JobHuntDbContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JobHuntDbContext.edmx</DependentUpon>
+      <LastGenOutput>JobHuntDbContext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\JobHuntDbContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JobHuntDbContext.edmx</DependentUpon>
+      <LastGenOutput>JobHuntDbContext.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

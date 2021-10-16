@@ -1,0 +1,42 @@
+﻿
+<header class="stick-top forsticky">
+    <div class="menu-sec">
+        <div class="container">
+            <div class="logo">
+                <a href="/" title=""><img class="hidesticky" src="~/Assets/client/images/resource/logo.png" alt="" /><img class="showsticky" src="~/Assets/client/images/resource/logo10.png" alt="" /></a>
+            </div><!-- Logo -->
+            @Html.Partial("_LayoutAuthentication")
+            <nav>
+                <ul>
+                    <li class="menu-item-has-children">
+                        <a href="@Url.Action("ListJobs","RecruitJob")" title="">Tất cả việc làm</a>
+                    </li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        if (!User.IsInRole("Người tìm việc"))
+                        {
+                            <li class="menu-item-has-children">
+                                <a href="@Url.Action("ListCandidates", "Candidate")" title="Danh sách công ty">Người tìm việc</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="menu-item-has-children">
+                                <a href="@Url.Action("ListRecruits", "Recruit")" title="Danh sách công ty">Công Ty</a>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="menu-item-has-children">
+                            <a href="@Url.Action("ListRecruits","Recruit")" title="Danh sách công ty">Công Ty</a>
+                        </li>
+                    }
+                    <li class="menu-item-has-children">
+                        <a href="@Url.Action("ListBlogs","Blog")" title="">Tư vấn/Bài viết</a>
+                    </li>
+                </ul>
+            </nav><!-- Menus -->
+        </div>
+    </div>
+</header>

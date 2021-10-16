@@ -1,0 +1,209 @@
+﻿@model List<JobHunt.BU.DTO.AdvertisementDTO>
+    @using JobHunt.BU.DTO
+@{
+    /**/
+
+    ViewBag.Title = "Trang quản trị || JobHunt";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var stt = 0;
+
+    //List jobs
+    var ListJobs = (List<RecruitJobDTO>)ViewBag.ListTopFindJob;
+}
+
+
+<section class="listSupplier main__content">
+    <div class="listcm__top main__banner dashboard__banner">
+        <div class="row">
+            <div class="col-12">
+                <div class="main__title">
+                    <h1 class="main__title--content dashboard-title">Dashboard</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="listcm__content main__list dashboard__list">
+        <div class="list__top main__list--top">
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <div class="dashboard--item">
+                        <div class="dashboard--item__content blue">
+                            <div class="dashboard--item__top">
+                                <h2 class="dashboard--item__number">
+                                    <input type="text" name="name" id="TotalAccumulated" class="readonly" value="@ViewBag.NumberAccountApprovaling" />
+                                </h2>
+                                <p class="dashboard--item__name">Tài khoản chờ phê duyệt</p>
+                                <div class="icon"><i class="fa fa-signal"></i></div>
+                            </div>
+                            <div class="dashboard--item__btn text-center">
+                                <a href="@Url.Action("","candidatemanagement", new { status = (int)JobHunt.BU.Common.Enum.StatusCandidate.Approvaling })" class="text-center">
+                                    Xem chi tiết
+                                    <span><i class="fa fa-arrow-circle-right"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="dashboard--item">
+                        <div class="dashboard--item__content green">
+                            <div class="dashboard--item__top">
+                                <h2 class="dashboard--item__number">
+                                    <input type="text" name="name" id="TotalAccumulatedMember" class="readonly" value="@ViewBag.NumberAccountActive" />
+                                </h2>
+                                <p class="dashboard--item__name">Tài khoản hoạt động</p>
+                                <div class="icon"><i class="fa fa-user"></i></div>
+                            </div>
+                            <div class="dashboard--item__btn text-center">
+                                <a href="@Url.Action("","candidatemanagement", new { status = (int)JobHunt.BU.Common.Enum.StatusCandidate.Active })" class="text-center">
+                                    Xem chi tiết
+                                    <span><i class="fa fa-arrow-circle-right"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="dashboard--item">
+                        <div class="dashboard--item__content orange">
+                            <div class="dashboard--item__top">
+                                <h2 class="dashboard--item__number">
+                                    <input type="text" name="name" id="TotalHistoryConstruction" class="readonly" value="@ViewBag.NumberJobActive" />
+                                </h2>
+                                <p class="dashboard--item__name">Tin đã được duyệt</p>
+                                <div class="icon"><i class="fa fa-building"></i></div>
+                            </div>
+                            <div class="dashboard--item__btn text-center">
+                                <a href="@Url.Action("","recruitjobmanagement", new { status = (int)JobHunt.BU.Common.Enum.EnumStatusJob.Active })" style="cursor:pointer;" class="text-center view-detail-hcd">
+                                    Xem chi tiết
+                                    <span><i class="fa fa-arrow-circle-right"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="dashboard--item">
+                        <div class="dashboard--item__content red">
+                            <div class="dashboard--item__top">
+                                <h2 class="dashboard--item__number">
+                                    <input type="text" name="name" id="TotalAccumulatedByMonth" class="readonly" value="@ViewBag.NumberJobApprovaling" />
+                                </h2>
+                                <p class="dashboard--item__name">Tin chờ phê duyệt</p>
+                                <div class="icon"><i class="fa fa-calendar"></i></div>
+                            </div>
+                            <div class="dashboard--item__btn text-center">
+                                <a href="@Url.Action("","recruitjobmanagement", new { status = (int)JobHunt.BU.Common.Enum.EnumStatusJob.Approvaling })" class="text-center">
+                                    Xem chi tiết
+                                    <span><i class="fa fa-arrow-circle-right"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="dashboard__content">
+            <div class="dashboard__content--banner">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="dashboard__content--title">
+                            <h2 class="dashboard-title">Danh sách quảng cáo đến hạn</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard__table">
+                <table id="example" class="display textable" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Hình ảnh</th>
+                            <th>Vị trí đặt</th>
+                            <th>TG bắt đầu</th>
+                            <th>TG kết thúc</th>
+                            <th>Bên quảng cáo</th>
+                            <th>Sdt</th>
+                            <th>Trạng thái</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Count > 0)
+                        {
+                            foreach (var ad in Model)
+                            {
+                                stt++;
+                                <tr role="row" class="odd textable" id="trad@(ad.AdvertisementId)">
+                                    <td>@stt</td>
+                                    <td class="tdadvert"><a href="@ad.AdLink"><img src="@ad.AdImage" /></a></td>
+                                    <td>Slider @ad.AdPosition</td>
+                                    <td>@ad.AdStartDate.ToString("dd-MM-yyyy")</td>
+                                    <td>@ad.AdEndDate.ToString("dd-MM-yyyy")</td>
+                                    <td>@ad.AdName</td>
+                                    <td>@ad.AdPhone</td>
+                                    <td>@ad.nameStatus</td>
+                                    <td class="option text-center">
+                                        <a title="Xóa" class="btn btn-primary btn-update-ad btn-del-control" href="@Url.Action("detailadvertisement","advertisement", new { id = ad.AdvertisementId })">
+                                            <i class="far fa-edit"></i>
+                                        </a>
+                                        <a title="Xóa" class="btn danger btn-del-ad btn-del-control" input-id-ad="@ad.AdvertisementId" page-ad="list" data-toggle="modal" data-target="#exampleModalCenter">
+                                            <i class="far fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+        @*Danh sách công việc tìm kiếm nhiều nhất*@
+        <div class="dashboard__content">
+            <div class="dashboard__content--banner">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="dashboard__content--title">
+                            <h2 class="dashboard-title">Danh sách công việc có lượt xem nhiều nhất</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard__table">
+                    <table class="tablecm table--base" id="tablecm">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tin đăng</th>
+                                <th>Công việc</th>
+                                <th>Ngành</th>
+                                <th>Số lượt xem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ListJobs != null && ListJobs.Count > 0)
+                            {
+                                foreach (var job in ListJobs.Take(10))
+                                {
+                                    stt++;
+                                    <tr role="row">
+                                        <td>@stt</td>
+                                        <td>@job.RJTitle</td>
+                                        <td class="tdadvert">@job.ProfessionDTO.PFName</td>
+                                        <td>@job.ProfessionDTO.CareerDTO.CareerName</td>
+                                        <td>@job.RJCount</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,137 @@
+﻿@model PagedList.IPagedList<JobHunt.BU.DTO.RecruitJobDTO>
+@using PagedList.Mvc;
+@using JobHunt.BU.DTO
+@{
+    ViewBag.Title = "Danh sách công việc";
+
+    //Số ứng viên đã apply vào công ty
+    int AppliedCompany = ViewBag.AppliedCompany;
+
+    //Số công việc phù hợp
+    int ListJobsFit = ViewBag.ListJobsFit;
+
+    //Số công việc đã đăng
+    int PostJobs = ViewBag.PostJobs;
+
+    var Recruit = (RecruitDTO)ViewBag.Recruit;
+
+}
+<!-- Button trigger modal -->
+@*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>*@
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Xóa tin đăng</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa tin đăng <span class="title-job"></span> này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary btndeletejob">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="overlape">
+    <div class="block no-padding">
+        <div data-velocity="-.1" style="background: url(@Recruit.RICoverImage) 100% 100% no-repeat scroll transparent;" class="parallax scrolly-invisible no-parallax" id="bg-recruit"></div><!-- PARALLAX BACKGROUND IMAGE -->
+        <div class="container fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-header">
+                        <h3>Xin chào @Recruit.RICompanyName</h3>
+                    </div>
+                    <div class="edit-coverimage" id="bg-upcover">
+                        <a title="Ảnh bìa công ty">
+                            <div class="edit-avatar__btn up-coverimage">
+                                <img src="~/Assets/client/images/camera.png" class="display-inline-block" />
+                                <p class="display-inline-block text-update-cover-img">Cập nhật</p>
+                            </div>
+                            <input type="file" name="" value="" class="btnupcover" id="updatecover" />
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="block no-padding">
+        <div class="container">
+            <div class="row no-gape">
+                @Html.Partial("_LayoutMenuLeft")
+                <div class="col-lg-9 column">
+                    <div class="padding-left">
+                        <div class="manage-jobs-sec addscroll">
+                            <h3>Quản lý công việc</h3>
+                            <div class="extra-job-info">
+                                <span><i class="la la-clock-o"></i><strong>@PostJobs</strong> việc đã đăng</span>
+                                <span><i class="la la-file-text"></i><strong>@AppliedCompany</strong> đã ứng tuyển</span>
+                                <span><i class="la la-users"></i><strong>@ListJobsFit</strong> công việc phù hợp</span>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>Tiêu đề</td>
+                                        <td>Lượt ứng tuyển</td>
+                                        <td>Ngày đăng &amp; Hết hạn</td>
+                                        <td>Tình trạng</td>
+                                        <td>Hành động</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.Count > 0)
+                                    {
+                                        foreach (var job in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <div class="table-list-title">
+                                                        <h3 style="width: 170px"><a href="@Url.Action("DetailJob", "RecruitJob", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(job.RJTitle, job.RecruitJobId) })" title="@job.RJTitle" class="titlejob" id="titlejob@(job.RecruitJobId)">@job.RJTitle</a></h3>
+                                                        <span><i class="la la-map-marker"></i>@job.CityDTO.CName</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="applied-field" style="margin-left: 30%">@job.AppliedCount</span>
+                                                </td>
+                                                <td>
+                                                    <span>@job.RJPostDate.Value.ToString("dd-MM-yyyyy") & @job.RJExpirationDate.Value.ToString("dd-MM-yyyyy")</span>
+                                                </td>
+                                                <td>
+                                                    <span class="status active">@job.TrangThai</span>
+                                                </td>
+                                                <td>
+                                                    <ul class="action_job">
+                                                        <li><span>Xem chi tiết</span><a href="@Url.Action("DetailJob", "RecruitJob", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(job.RJTitle, job.RecruitJobId) })" title="@job.RJTitle" class="titlejob"><i class="la la-eye"></i></a></li>
+                                                        <li><span>Sửa</span><a href="@Url.Action("UpdateJob", "RecruitJob", new { id = job.RecruitJobId })" title=""><i class="la la-pencil"></i></a></li>
+                                                        <li><span>Xóa</span><a title="" data-toggle="modal" data-target="#exampleModalCenter"><i class="la la-trash-o deletejob" id="rc@(job.RecruitJobId)"></i></a></li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    }
+
+                                </tbody>
+                            </table>
+                            <div class="pagination padding-paging">
+                                @Html.PagedListPager(Model, page => Url.Action("ListJobsPost", new { page }))<!-- Pagination -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

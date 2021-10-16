@@ -1,0 +1,205 @@
+﻿@using JobHunt.BU.DTO;
+@model PagedList.IPagedList<WebmasterInfoDTO>
+@{
+    ViewBag.Title = "Phân quyền";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var stt = ViewBag.stt;
+    var listRole = ViewBag.roles as List<AspNetRoleDTO>;
+}
+<section class="wrap__content" id="list-hm">
+    <div class="listhm main__content" id="list-mt">
+        <div class="listhm__top main__banner">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="main__title">
+                        <h1 class="main__title--content">Phân quyền</h1>
+                    </div>
+                </div>
+                <div class="clear-fix"></div>
+            </div>
+        </div>
+        <div class="content__inner main-content">
+            <div class="listhm__content main__list" style="width:65%;float:left">
+                <div class="list__top main__list--top" style="width:155%">
+                    <form action="@Url.Action("Decentralization","AccountManage")" method="GET" style="padding-left: 25px;">
+                        <div class="row">
+                            <div class="col-xl-3 col-12">
+                                <div class="list__top--search">
+                                    <input type="search" name="keyWord" value="@ViewBag.keyWord" class="search_cm_input input-base" placeholder="Nhập từ khóa tìm kiếm . . ." id="textsearchcm">
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-sm-6 col-12">
+                                <button class="btn btn-primary">Tìm kiếm</button>
+                                <div class="date">
+                                    @*<span>Từ ngày:</span>
+                                        <input type="date" class="dateFrom-cm search-date-cm input-base" date="from">*@
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 col-12">
+                                <div class="date">
+                                    @*<span>Đến ngày:</span>
+                                        <input type="date" class="dateTo-cm search-date-cm input-base" date="to">*@
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clear-fix"></div>
+                </div>
+
+                <div class="list__content main__list--content">
+                    <span class="total">
+                        Tổng số:
+                        <span id="hm_total" class="total-content">@Model.TotalItemCount</span>
+                    </span>
+                    <div class="table__content">
+                        <table class="tablehm table--base" id="tablehm">
+                            <thead>
+                                <tr>
+                                    <th class="first index-th text-center"></th>
+                                    <th class="text-left">STT</th>
+                                    @*<th class="id">Mã KH</th>*@
+                                    <th class="text-left">Họ tên</th>
+                                    <th class="text-left">Tên đăng nhập</th>
+                                    <th class="text-left">Chức vụ</th>
+                                </tr>
+                            </thead>
+                            <tbody id="hm_table">
+                                @foreach (var item in Model)
+                                {
+                                    stt++;
+                                    <tr UserId="@item.WI_AspNetUserId" class="userid">
+                                        <td class="first tb-index text-center">
+                                            <input class="text-center radiouser" type="radio" name="selectUser" value="@item.WebmasterInfoId" id="user_@item.WebmasterInfoId" userRadio />
+                                        </td>
+                                        <td class="date-td text-left" style="padding:0; width:50px" title="@stt">
+                                            <label for="user_@item.WebmasterInfoId" style="line-height:28px;padding:5px 10px;width:100%;font-weight:400">
+                                                @stt
+                                            </label>
+                                        </td>
+                                        <td class="date-td text-left" style="padding:0" title="@item.WIFullName">
+                                            <label for="user_@item.WebmasterInfoId" style="line-height:28px;padding:5px 10px;width:100%;font-weight:400">
+                                                @item.WIFullName
+                                            </label>
+                                        </td>
+                                        <td class="text-left" style="padding:0" title="@item.WIUserName">
+                                            <label for="user_@item.WebmasterInfoId" style="line-height:28px;padding:5px 10px;width:100%;font-weight:400">
+                                                @item.WIUserName
+                                            </label>
+                                        </td>
+                                        <td class="text-left" style="padding:0" title="@(item.nameRole)">
+                                            <label for="user_@item.WebmasterInfoId" style="line-height:28px;padding:5px 10px;width:100%;font-weight:400">
+                                                @(item.nameRole)
+                                            </label>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="listcm__bottom main__bottom">
+                        <div class="row">
+                            <div class="col-xl-6 col-6">
+                                <div>
+                                    <ul class="interactive__btn group-btn">
+                                        <li>
+                                            @*<a class="historyconstruction-add" id="popupAdd">
+                                                    Thêm
+                                                </a>*@
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-6">
+                                <div class="list__pagination group-btn text-right">
+                                    <div class="list__pagination group-btn">
+                                        <ul class="list__pagination group-btn">
+                                            <li>
+                                                @if (!Model.IsFirstPage)
+                                                {
+                                                    <a class="btn-prev" href="@Url.Action("","AccountManage",new {keyWord = ViewBag.keyWord ,page = (Model.PageNumber - 1)})">
+                                                        <i class="fas fa-fast-backward"></i>
+                                                    </a>
+                                                }
+                                            </li>
+                                            <li>
+                                                <a class="index-page">
+                                                    @Model.PageNumber
+                                                </a>
+                                            </li>
+                                            <li>
+                                                @if (!Model.IsLastPage)
+                                                {
+                                                    <a class="btn-next" href="@Url.Action("", "AccountManage", new { keyWord = ViewBag.keyWord ,page = (Model.PageNumber + 1) })">
+                                                        <i class="fas fa-fast-forward"></i>
+                                                    </a>
+                                                }
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear-fix"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="listhm__content main__list" style="width:35%;float:left">
+                <div class="list__content main__list--content">
+                    <div class="table__content">
+                        <table class="tablehm table--base" id="tablehm">
+                            <thead>
+                                <tr>
+                                    <th class="first index-th text-center"></th>
+                                    @*<th class="id">Mã KH</th>*@
+                                    <th class="text-left">Tên Quyền</th>
+                                </tr>
+                            </thead>
+                            <tbody id="role_table">
+                                @foreach (var item in listRole)
+                                {
+                                    stt++;
+                                    <tr UserId="@item.Id">
+                                        <td class="first tb-index text-center">
+                                            <input class="readonly text-center checkboxpq" type="checkbox" value="@item.Name" id="check_@item.Id" />
+                                        </td>
+                                        <td class="date-td text-left" title="@(item.Name)" style="padding:0">
+                                            <label for="check_@item.Id" style="line-height:28px;padding:5px 10px;width:100%">
+                                                @item.Name
+                                            </label>
+                                        </td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="listcm__bottom main__bottom">
+                        <div class="row">
+                            <div class="col-xl-12 col-12">
+                                <div class="list__pagination group-btn text-right" style="position:relative">
+                                    <div class="list__pagination group-btn" style="position:absolute; right:50%; transform:translateX(50%)">
+                                        <ul class="interactive__btn group-btn">
+                                            <li style="padding-right:5px;">
+                                                <a id="submitDecentralization">
+                                                    Áp Dụng
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a style="color:black">Hủy</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</section>

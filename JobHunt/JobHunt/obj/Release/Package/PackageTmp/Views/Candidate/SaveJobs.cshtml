@@ -1,0 +1,46 @@
+﻿@model PagedList.IPagedList<JobHunt.BU.DTO.RecruitJobDTO>
+@using PagedList.Mvc;
+@using JobHunt.BU.DTO
+@{
+    ViewBag.Title = "Những công việc đã lưu";
+    Layout = "~/Views/Shared/_LayoutLogged.cshtml";
+}
+@Html.Hidden("pageCheck", "savejob")
+<div class="col-lg-9 column">
+    <div class="padding-left">
+        <div class="manage-jobs-sec">
+            <div class="border-title"><h3>Công việc đã lưu</h3></div>
+            @if (Model.Count > 0)
+            {
+                foreach (var rj in Model)
+                {
+                    <div class="job-listing wtabs" id="savejob@(rj.RecruitJobId)">
+                        <div class="job-title-sec">
+                            <div class="c-logo"> <img src="@rj.RecruitDTO.RILogo" alt="" class="logo-company"> </div>
+                            <h3 class=""><a href="@Url.Action("DetailJob", "RecruitJob", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(rj.RJTitle, rj.RecruitJobId) })" title="@rj.RJTitle" class="titlejob">@rj.RJTitle</a></h3>
+                            <span>@rj.RecruitDTO.RIFullName</span>
+                            <div class="job-lctn">
+                                @if (rj.RJExpirationDate > DateTime.Now)
+                                {
+                                    <p>Ngày hết hạn: @rj.RJExpirationDate</p>
+                                }
+                                else
+                                {
+                                    <p style="color: red">Đã hết hạn</p>
+                                }
+                            </div>
+                        </div>
+                        <div class="job-list-del">
+                            <a title="" class="fav-job active" id="rc@(rj.RecruitJobId)"><i class="la la-trash-o"></i></a>
+                        </div>
+                    </div><!-- Job -->
+                }
+            }
+
+            <div class="pagination padding-paging">
+                @Html.PagedListPager(Model, page => Url.Action("SaveJobs", new { page }))<!-- Pagination -->
+            </div>
+        </div>
+    </div>
+</div>
+

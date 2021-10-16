@@ -1,0 +1,70 @@
+﻿@using JobHunt.BU.DTO
+@using JobHunt.BU.Manage
+@model JobHunt.BU.DTO.CandidateDTO
+@{
+    ViewBag.Title = "Hồ sơ đính kèm || " + Model.CddFullName;
+    Layout = "~/Views/Shared/_LayoutLogged.cshtml";
+}
+
+<div class="col-lg-9 column upload-cv-right">
+    <div class="padding-left">
+        <div class="manage-jobs-sec">
+            <h3>CV &amp; Cover Letter</h3>
+            <div class="coverletter-sec">
+                <form>
+                    @if (!string.IsNullOrEmpty(Model.nameFileCV))
+                    {
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <p>
+                                    File đính kèm:
+                                </p>
+                            </div>
+                            <div class="col-lg-9">
+                                <p id="name-file-uploaded">
+                                    @Html.ActionLink(Model.nameFileCV, "DownloadFile", "Common", new { path = Model.CddPathCV, name = Model.nameFileCV }, new { id = "linkpath" })
+                                </p>
+                            </div>
+                        </div>
+                    }
+                    <div class="row paddingdiv">
+                        <div class="col-lg-3">
+                            <p>
+                                Chọn Hồ sơ đính kèm *
+                            </p>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="main-upload">
+                                <input type="file" name="name" value="" class="bt_input uploadfilecv" id="fileCV" />
+                                <div class="text-upload">
+                                    <span class="icon_upload_file"></span>
+                                    <b>ĐÍNH KÈM HỒ SƠ</b>
+                                </div>
+                            </div>
+                            <div class="textfile">
+                                <span class="namefile"></span>
+                            </div>
+                            <div class="notetext">
+                                (Dạng file .doc, .docx,.pdf dung lượng <=2MB)
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span class="pf-title">Mô tả</span>
+                            <div class="pf-field">
+                                @Html.TextAreaFor(model => model.CddDescribeCV)
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <button type="button" id="uploadcv">Cập nhật</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
