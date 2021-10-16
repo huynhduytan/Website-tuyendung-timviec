@@ -1,0 +1,160 @@
+﻿@{
+    ViewBag.Title = "Thêm tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wrap__content" id="detail-customer">
+    <section class="content cus-detail main__content">
+        <div class="cus-detail__top main__banner">
+            <div>
+                <div class="">
+                    <div class="main__title text-center">
+                        <h1 class="main__title--content">Thêm tài khoản</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-flud">
+            <div class="content__inner main-content">
+                <div class="cus-detail__view cus-edit">
+                    <form id="admin-createaccount-form" class="admin-account-form">
+                        <div class="cus-detail__content">
+                            <div class="cus-detail__content--title">
+                                <h3>Thông tin đăng nhập<span class="red">(*)</span></h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Email<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("WIEmail", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "nguyenvana@gmail.com" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Tên đăng nhập<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("WIUserName", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "nguyenvana" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Mật khẩu<span class="red">(*):</span></td>
+                                            <td class="input-field ">
+                                                @Html.Editor("WIPassword", new { htmlAttributes = new { @class = "input-base textinput inputpass", placeholder = "******", @type = "password" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Xác nhận mật khẩu<span class="red">(*):</span></td>
+                                            <td class="input-field ">
+                                                @Html.Editor("WIConfirmPassword", new { htmlAttributes = new { @class = "input-base textinput inputpass", placeholder = "******", @type = "password" } })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cus-detail__content">
+                            <div class="cus-detail__content--title">
+                                <h3>Thông tin tài khoản<span class="red">(*)</span></h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-6 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Họ tên<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("WIFullName", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Nguyễn Văn A" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Số điện thoại<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("WIPhoneNumber", new { htmlAttributes = new { @class = "input-base passwordtext textinput", placeholder = "0336578924" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Địa chỉ<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("WIAddress", new { htmlAttributes = new { @class = "input-base passwordtext textinput", placeholder = "TDP Ngọa Long, Minh Khai, Bắc Từ Liêm, Hà Nội" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Vai trò<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("WIType",
+                                            new List<SelectListItem>
+                                            {
+                                                new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.Role.Employee, Text = "Nhân viên"},
+                                                new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.Role.Admin, Text = "Quản trị viên"},
+                                            }, new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-xl-6 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Giới tính<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("WIGender",
+                                            new List<SelectListItem>
+                                            {
+                                                new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.Gender.Boy, Text = "Nam"},
+                                                new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.Gender.Girl, Text = "Nữ"},
+                                                new SelectListItem {Value = ""+(int?)JobHunt.BU.Common.Enum.Gender.Boy, Text = "Khác" }
+                                            }, new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="tb_label bold">Ngày sinh<span class="red">(*):</span></td>
+                                            <td class="input-field date">
+                                                @Html.Editor("WIBirthDay", new { htmlAttributes = new { @class = "input-base passwordtext textinput", @type = "date" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Trạng thái<span class="red">(*):</span></td>
+                                            <td class="input-field date">
+                                                @Html.DropDownList("WIStatus",
+                                    new List<SelectListItem>
+                                    {
+                                        new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.StatusAccount.Active, Text = "Hoạt động"},
+                                        new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.StatusAccount.Block, Text = "Tạm ngừng"},
+
+                                    }, new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Chức vụ<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("WIPosition",
+                                            new List<SelectListItem>
+                                            {
+                                                new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.WIPosition.ManageNewAndJob, Text = "Quản lý tin (tin tức, tin đăng)"},
+                                                new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.WIPosition.ManageUser, Text = "Quản lý người dùng (NTV, NTD)"},
+                                                new SelectListItem {Value = ""+(int?)JobHunt.BU.Common.Enum.WIPosition.ManageWebsite, Text = "Quản lý website (quảng cáo, thống kê, website)" },
+                                                new SelectListItem {Value = ""+(int?)JobHunt.BU.Common.Enum.WIPosition.Admin, Text = "Quản trị" }
+                                            }, new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-btn text-center">
+                            <button class="btn btn-primary margin-right-30 updateaccount" type="submit" id="account-1">Tạo</button>
+                            <a href="/admin/accountmanage/listaccount" class="btn danger bt-danger btn--cancel-edit-cm">Hủy</a>
+                            @*<a class="btn btn-primary btn-del-cm danger" onclick="document.showDel('cm')" input-id-cm="" page-cm="detail">Xóa</a>*@
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @*list history*@
+    </section>
+</div>
+
+

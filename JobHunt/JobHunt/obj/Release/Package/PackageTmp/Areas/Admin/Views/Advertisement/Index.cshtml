@@ -1,0 +1,124 @@
+﻿@model List<JobHunt.BU.DTO.AdvertisementDTO>
+@{
+    ViewBag.Title = "Danh sách quảng cáo";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    var stt = 0;
+}
+
+<section class="wrap__content" id="list-customer">
+    <div class="listcm main__content" id="list-customer">
+        <div class="listcm__top main__banner">
+            <div class="row">
+                <div class="col-xl-6 col-md-6 col-12">
+                    <div class="main__title">
+                        <h1 class="main__title--content">Danh sách quảng cáo</h1>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6 col-12">
+
+                    <div class="banner-interactive">
+                        <ul class="interactive__btn group-btn">
+                            <li>
+                                <a class="customer-add customer-btn__add" href="@Url.Action("bookadvertisement","advertisement")">
+                                    Thêm
+                                </a>
+                            </li>
+                            <li>
+                                <a class="label-add-file clickImport">Nhập</a>
+                                <input type="file" name="meeting__document" class="add-file disabled updateExcel" id="updateExcelID" value="Choose file" />
+                            </li>
+                            <li>
+                                <a class="exportexcel--btn">Xuất</a>
+                                @using (Html.BeginForm("ExportToExcel", "Customer", FormMethod.Post, new { @class = "disabled" }))
+                                {
+                                    <input type="text" name="MemberType" value="" />
+                                    <input type="submit" value="Xuất" class="exportexcel" />
+                                }
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear-fix"></div>
+            </div>
+        </div>
+        <div class="listcm__content main__list">
+
+            <div class="list__content main__list--content gridcm">
+                <div class="table__content">
+                    <table id="example" class="display textable" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Hình ảnh</th>
+                                <th>Vị trí đặt</th>
+                                <th>TG bắt đầu</th>
+                                <th>TG kết thúc</th>
+                                <th>Bên quảng cáo</th>
+                                <th>Sdt</th>
+                                @*<th>Địa chỉ</th>*@
+                                <th>Trạng thái</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Count > 0)
+                            {
+                                foreach (var ad in Model)
+                                {
+                                    stt++;
+                                    <tr role="row" class="odd textable" id="trad@(ad.AdvertisementId)">
+                                        <td>@stt</td>
+                                        <td class="tdadvert"><a href="@ad.AdLink"><img src="@ad.AdImage"/></a></td>
+                                        <td>Slider @ad.AdPosition</td>
+                                        <td>@ad.AdStartDate.ToString("yyyy-MM-dd")</td>
+                                        <td>@ad.AdEndDate.ToString("yyyy-MM-dd")</td>
+                                        <td>@ad.AdName</td>
+                                        <td>@ad.AdPhone</td>
+                                        @*<td>@ad.AdAddress</td>*@
+                                        <td>@ad.nameStatus</td>
+                                        <td class="option text-center">
+                                            <a title="Xóa" class="btn btn-primary btn-update-ad btn-del-control" href="@Url.Action("detailadvertisement","advertisement", new { id = ad.AdvertisementId })">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+                                            <a title="Xóa" class="btn danger btn-del-ad btn-del-control" input-id-ad="@ad.AdvertisementId" page-ad="list" data-toggle="modal" data-target="#exampleModalCenter">
+                                                <i class="far fa-trash-alt"></i>
+                                            </a>
+                                            @*<a title="Xóa" class="btn danger btn-del-ad btn-del-control" input-id-ad="@ad.AdvertisementId" page-ad="list" data-toggle="modal" data-target="#exampleModalCenter">
+                                                <i class="fa fa-reorder"></i>
+                                            </a>*@
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        @* Popup delete *@
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Xóa tài khoản</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Bạn có chắc chắn muốn xóa quảng cáo <span id="namedelete"></span> này không?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" id="btn-yes-delete-ad">Đồng ý</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

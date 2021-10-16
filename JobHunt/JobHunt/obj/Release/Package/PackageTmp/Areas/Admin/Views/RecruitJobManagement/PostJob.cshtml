@@ -1,0 +1,238 @@
+﻿@{
+    ViewBag.Title = "Đăng tin tuyển dụng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="wrap__content" id="detail-customer">
+    <section class="content cus-detail main__content">
+        <div class="cus-detail__top main__banner">
+            <div>
+                <div class="">
+                    <div class="main__title text-center">
+                        <h1 class="main__title--content">Đăng tin tuyển dụng</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-flud">
+            <div class="content__inner main-content">
+                <div class="cus-detail__view cus-edit">
+                    <form id="admin-updatepost-form" class="admin-postjob-form">
+                        <div class="cus-detail__content">
+                            <div class="cus-detail__content--title">
+                                <h3>Thông tin bài đăng<span class="red">(*)</span></h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Tiêu đề<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("RJTitle", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Cần tuyển nhân viên..." } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Công việc<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("RJ_ProfessionId", (IEnumerable<SelectListItem>)ViewBag.ListProfesstions, "--- Công việc ---", new { @class = "chosen-city form-control" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-6 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Vị trí cần tuyển<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("RJPosition", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Nhân viên" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Mức lương<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("RJ_SalaryId", (IEnumerable<SelectListItem>)ViewBag.ListSalaries, "--- Mức lương ---", new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Kinh nghiệm<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("RJ_ExperienceId", (IEnumerable<SelectListItem>)ViewBag.ListExperiences, "--- Kinh nghiệm ---", new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Giới tính<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("RJGender",
+                                            new List<SelectListItem>
+                                            {
+                                                new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.Gender.Boy, Text = "Nam"},
+                                                new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.Gender.Girl, Text = "Nữ"},
+                                                new SelectListItem {Value = ""+(int?)JobHunt.BU.Common.Enum.Gender.NoRequired, Text = "Không yêu cầu" },
+                                                new SelectListItem {Value = ""+(int?)JobHunt.BU.Common.Enum.Gender.Boy, Text = "Khác" }
+                                            }, new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Thể loại<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("RJType",
+                                            new List<SelectListItem>
+                                            {
+                                                new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.EnumTypeJob.Normal, Text = "Thường"},
+                                                new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.EnumTypeJob.Hot, Text = "Nổi bật"},
+                                            }, new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-xl-6 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Số lượng<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("RJAmount", new { htmlAttributes = new { @class = "input-base passwordtext textinput", placeholder = "3" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Trình độ<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("RJ_LevelId", (IEnumerable<SelectListItem>)ViewBag.ListLevels, "--- Trình độ ---", new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">HT làm việc<span class="red">(*):</span></td>
+                                            <td class="input-field date">
+                                                @Html.DropDownList("RJ_WorkTypeId", (IEnumerable<SelectListItem>)ViewBag.ListWorkTypes, "--- Hình thức làm việc ---", new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Hết hạn<span class="red">(*):</span></td>
+                                            <td class="input-field date">
+                                                @Html.Editor("RJExpirationDateString", new { htmlAttributes = new { @class = "input-base passwordtext textinput", @type = "date" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Trạng thái<span class="red">(*):</span></td>
+                                            <td class="input-field date">
+                                                @Html.DropDownList("RJStatus",
+                                    new List<SelectListItem>
+                                    {
+                                        new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.StatusCandidate.Active, Text = "Hoạt động"},
+                                        new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.StatusCandidate.Block, Text = "Tạm ngừng"},
+                                        new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.StatusCandidate.Approvaling, Text = "Chờ xét duyệt"},
+
+                                    }, new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-lg-12 editordiv">
+                                    <span class="pf-title bold">Mô tả<span class="red">(*)</span></span>
+                                    <section id="editor">
+                                        <div class="summernote" id="RJ_Describe"></div>
+                                    </section>
+                                </div>
+                                <div class="col-lg-12 editordiv">
+                                    <span class="pf-title bold">Yêu cầu công việc<span class="red">(*)</span></span>
+                                    <section id="editor1">
+                                        <div class="summernote" id="RJ_Require"></div>
+                                    </section>
+                                </div>
+                                <div class="col-lg-12 editordiv">
+                                    <span class="pf-title bold">Quyền lợi<span class="red">(*)</span></span>
+                                    <section id="editor2">
+                                        <div class="summernote" id="RJBenefit"></div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cus-detail__content">
+                            <div class="cus-detail__content--title">
+                                <h3>Thông tin liên hệ<span class="red">(*)</span></h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Số điện thoại<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("RJPhoneContact", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Số điện thoại: 0336515294" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Email<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("RJEmailContact", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Email: nguyenvana@gmail.com" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Tên liên hệ<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("RJNameContact", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Dương Tiến Đạt" } })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cus-detail__content">
+                            <div class="cus-detail__content--title">
+                                <h3>Địa chỉ làm việc</h3>@*<span class="red">(*)</span>*@
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-6 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Tỉnh/Thành phố<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownList("RJCityId", (IEnumerable<SelectListItem>)ViewBag.ListCities, "-- Chọn Tỉnh/Thành phố --", new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Phường/Xã<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                <select data-placeholder="Chọn Phường/Xã" class="chosen-single dropdown-address form-control" id="RJ_WardId" name="RJ_WardId">
+                                                    <option value="">-- Chọn Phường/Xã --</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-xl-6 col-md-12">
+                                    <table>
+                                        
+                                        <tr>
+                                            <td class="tb_label bold">Quận/Huyện<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                <select data-placeholder="Chọn Quận/Huyện" id="RJDistrictId" name="RJDistrictId" class="chosen-single dropdown-address form-control">
+                                                    <option value="">-- Chọn Quận/Huyện --</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Địa chỉ<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.Editor("RJ_WorkPlace", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Địa chỉ" } })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        @*</div>*@
+
+                        <div class="form-btn text-center">
+                            <button class="btn btn-primary margin-right-30 updatejob" type="submit" id="postjob-1">Tạo</button>
+                            <a href="/Admin/Customer" class="btn danger bt-danger btn--cancel-edit-cm">Hủy</a>
+                            @*<a class="btn btn-primary btn-del-cm danger" onclick="document.showDel('cm')" input-id-cm="" page-cm="detail">Xóa</a>*@
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @*list history*@
+    </section>
+</div>

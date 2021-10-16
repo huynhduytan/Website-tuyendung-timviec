@@ -1,0 +1,1037 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobHuntModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Advertisement">
+    <Key>
+      <PropertyRef Name="AdvertisementId" />
+    </Key>
+    <Property Name="AdvertisementId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdStartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AdEndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AdPosition" Type="Int32" Nullable="false" />
+    <Property Name="AdStatus" Type="Int32" Nullable="false" />
+    <Property Name="AdName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="Candidates" Relationship="Self.FK_Candidate_AspNetUsers" FromRole="AspNetUsers" ToRole="Candidate" />
+    <NavigationProperty Name="Recruits" Relationship="Self.FK_Recruit_AspNetUsers" FromRole="AspNetUsers" ToRole="Recruit" />
+    <NavigationProperty Name="WebmasterInfoes" Relationship="Self.FK_WebmasterInfo_AspNetUsers" FromRole="AspNetUsers" ToRole="WebmasterInfo" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="Candidate">
+    <Key>
+      <PropertyRef Name="CandidateId" />
+    </Key>
+    <Property Name="CandidateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cdd_AspNetUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CP_ProfessionId" Type="Int32" />
+    <Property Name="CP_LevelId" Type="Int32" />
+    <Property Name="CP_ExperienceId" Type="Int32" />
+    <Property Name="CP_SalaryId" Type="Int32" />
+    <Property Name="CP_WorkTypeId" Type="Int32" />
+    <Property Name="CddUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CddPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CddFullName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CPAvatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CddSex" Type="Int32" />
+    <Property Name="CddAbout" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CddAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CPPosition" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CPExperience" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CPSpeciality" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CPPostDate" Type="DateTime" Precision="3" />
+    <Property Name="CPStatus" Type="Int32" />
+    <Property Name="Cdd_CityId" Type="Int32" />
+    <Property Name="CddPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CddEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CddAge" Type="Int32" />
+    <Property Name="CddRegisterDate" Type="DateTime" Precision="3" />
+    <Property Name="CddFacebook" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CddGoogle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Cdd_DistrictId" Type="Int32" />
+    <Property Name="Cdd_WardId" Type="Int32" />
+    <Property Name="CddPathCV" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="CddDescribeCV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CddBirthday" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Candidate_AspNetUsers" FromRole="Candidate" ToRole="AspNetUsers" />
+    <NavigationProperty Name="City" Relationship="Self.FK_Candidate_City" FromRole="Candidate" ToRole="City" />
+    <NavigationProperty Name="District" Relationship="Self.FK_Candidate_District" FromRole="Candidate" ToRole="District" />
+    <NavigationProperty Name="Experience" Relationship="Self.FK_Candidate_Experience" FromRole="Candidate" ToRole="Experience" />
+    <NavigationProperty Name="LevelInfo" Relationship="Self.FK_Candidate_LevelInfo" FromRole="Candidate" ToRole="LevelInfo" />
+    <NavigationProperty Name="Profession" Relationship="Self.FK_Candidate_Profession" FromRole="Candidate" ToRole="Profession" />
+    <NavigationProperty Name="Salary" Relationship="Self.FK_Candidate_Salary" FromRole="Candidate" ToRole="Salary" />
+    <NavigationProperty Name="Ward" Relationship="Self.FK_Candidate_Ward" FromRole="Candidate" ToRole="Ward" />
+    <NavigationProperty Name="WorkType" Relationship="Self.FK_Candidate_WorkType" FromRole="Candidate" ToRole="WorkType" />
+    <NavigationProperty Name="CandidatePostResumes" Relationship="Self.FK_CandidatePostResume_Candidate" FromRole="Candidate" ToRole="CandidatePostResume" />
+    <NavigationProperty Name="SaveCandidates" Relationship="Self.FK_SaveCandidate_Candidate" FromRole="Candidate" ToRole="SaveCandidate" />
+    <NavigationProperty Name="SaveJobs" Relationship="Self.FK_SaveJob_Candidate" FromRole="Candidate" ToRole="SaveJob" />
+  </EntityType>
+  <EntityType Name="CandidatePostResume">
+    <Key>
+      <PropertyRef Name="CandidatePostResumeId" />
+    </Key>
+    <Property Name="CandidatePostResumeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CPR_CandidateId" Type="Int32" />
+    <Property Name="CPR_RecruitJobId" Type="Int32" />
+    <Property Name="CPRPostDate" Type="DateTime" Precision="3" />
+    <Property Name="CPRStatus" Type="Boolean" />
+    <Property Name="CddPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CddPathFileCV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Candidate" Relationship="Self.FK_CandidatePostResume_Candidate" FromRole="CandidatePostResume" ToRole="Candidate" />
+    <NavigationProperty Name="RecruitJob" Relationship="Self.FK_CandidatePostResume_RecruitJob" FromRole="CandidatePostResume" ToRole="RecruitJob" />
+  </EntityType>
+  <EntityType Name="Career">
+    <Key>
+      <PropertyRef Name="CareerId" />
+    </Key>
+    <Property Name="CareerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CareerName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Professions" Relationship="Self.FK_Profession__Career" FromRole="Career" ToRole="Profession" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="News" Relationship="Self.FK_New__Category" FromRole="Category" ToRole="New" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Candidates" Relationship="Self.FK_Candidate_City" FromRole="City" ToRole="Candidate" />
+    <NavigationProperty Name="Districts" Relationship="Self.FK_District__City" FromRole="City" ToRole="District" />
+    <NavigationProperty Name="Recruits" Relationship="Self.FK_Recruit_City" FromRole="City" ToRole="Recruit" />
+    <NavigationProperty Name="RecruitJobs" Relationship="Self.FK_RecruitJob_City" FromRole="City" ToRole="RecruitJob" />
+  </EntityType>
+  <EntityType Name="CompanySize">
+    <Key>
+      <PropertyRef Name="CompanySizeId" />
+    </Key>
+    <Property Name="CompanySizeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CSMin" Type="Int32" />
+    <Property Name="CSMax" Type="Int32" />
+    <Property Name="CSShow" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Recruits" Relationship="Self.FK_Recruit_CompanySize" FromRole="CompanySize" ToRole="Recruit" />
+  </EntityType>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="DistrictId" />
+    </Key>
+    <Property Name="DistrictId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DistrictName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DT_CityId" Type="Int32" />
+    <NavigationProperty Name="Candidates" Relationship="Self.FK_Candidate_District" FromRole="District" ToRole="Candidate" />
+    <NavigationProperty Name="City" Relationship="Self.FK_District__City" FromRole="District" ToRole="City" />
+    <NavigationProperty Name="Recruits" Relationship="Self.FK_Recruit_District" FromRole="District" ToRole="Recruit" />
+    <NavigationProperty Name="RecruitJobs" Relationship="Self.FK_RecruitJob_District" FromRole="District" ToRole="RecruitJob" />
+    <NavigationProperty Name="Wards" Relationship="Self.FK_Ward__District" FromRole="District" ToRole="Ward" />
+  </EntityType>
+  <EntityType Name="Experience">
+    <Key>
+      <PropertyRef Name="ExperienceId" />
+    </Key>
+    <Property Name="ExperienceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMin" Type="Double" />
+    <Property Name="EMax" Type="Double" />
+    <Property Name="EShow" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Candidates" Relationship="Self.FK_Candidate_Experience" FromRole="Experience" ToRole="Candidate" />
+    <NavigationProperty Name="RecruitJobs" Relationship="Self.FK_RecruitJob_Experience" FromRole="Experience" ToRole="RecruitJob" />
+  </EntityType>
+  <EntityType Name="LevelInfo">
+    <Key>
+      <PropertyRef Name="LevelInfoId" />
+    </Key>
+    <Property Name="LevelInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LIName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Candidates" Relationship="Self.FK_Candidate_LevelInfo" FromRole="LevelInfo" ToRole="Candidate" />
+    <NavigationProperty Name="RecruitJobs" Relationship="Self.FK_RecruitJob_LevelInfo" FromRole="LevelInfo" ToRole="RecruitJob" />
+  </EntityType>
+  <EntityType Name="New">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NQuote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NPostDate" Type="DateTime" Precision="3" />
+    <Property Name="NPublicDate" Type="DateTime" Precision="3" />
+    <Property Name="NType" Type="Int32" />
+    <Property Name="N_WebmasterInfoId" Type="Int32" />
+    <Property Name="N_CategoryId" Type="Int32" />
+    <Property Name="Nstatus" Type="Int32" />
+    <Property Name="NAvatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_New__Category" FromRole="New" ToRole="Category" />
+    <NavigationProperty Name="WebmasterInfo" Relationship="Self.FK_New__WebmasterInfo" FromRole="New" ToRole="WebmasterInfo" />
+  </EntityType>
+  <EntityType Name="Profession">
+    <Key>
+      <PropertyRef Name="ProfessionId" />
+    </Key>
+    <Property Name="ProfessionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PFCareerId" Type="Int32" />
+    <Property Name="PFName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Candidates" Relationship="Self.FK_Candidate_Profession" FromRole="Profession" ToRole="Candidate" />
+    <NavigationProperty Name="Career" Relationship="Self.FK_Profession__Career" FromRole="Profession" ToRole="Career" />
+    <NavigationProperty Name="Recruits" Relationship="Self.FK_Recruit_Profession" FromRole="Profession" ToRole="Recruit" />
+    <NavigationProperty Name="RecruitJobs" Relationship="Self.FK_RecruitJob_Profession" FromRole="Profession" ToRole="RecruitJob" />
+  </EntityType>
+  <EntityType Name="Recruit">
+    <Key>
+      <PropertyRef Name="RecruitId" />
+    </Key>
+    <Property Name="RecruitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RI_AspNetUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RIUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RIPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RIFullName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RIEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RICompanyName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RIAbout" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RILogo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RIAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RIPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="RIRegisterDate" Type="DateTime" Precision="3" />
+    <Property Name="RIStatus" Type="Int32" />
+    <Property Name="RIWebsite" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RI_CityId" Type="Int32" />
+    <Property Name="RI_DistrictId" Type="Int32" />
+    <Property Name="RI_WardId" Type="Int32" />
+    <Property Name="FoundedYear" Type="DateTime" Precision="3" />
+    <Property Name="RI_CompanySizeId" Type="Int32" />
+    <Property Name="RI_ProfessionId" Type="Int32" />
+    <Property Name="RICoverImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RIAvatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Recruit_AspNetUsers" FromRole="Recruit" ToRole="AspNetUsers" />
+    <NavigationProperty Name="City" Relationship="Self.FK_Recruit_City" FromRole="Recruit" ToRole="City" />
+    <NavigationProperty Name="CompanySize" Relationship="Self.FK_Recruit_CompanySize" FromRole="Recruit" ToRole="CompanySize" />
+    <NavigationProperty Name="District" Relationship="Self.FK_Recruit_District" FromRole="Recruit" ToRole="District" />
+    <NavigationProperty Name="Profession" Relationship="Self.FK_Recruit_Profession" FromRole="Recruit" ToRole="Profession" />
+    <NavigationProperty Name="Ward" Relationship="Self.FK_Recruit_Ward" FromRole="Recruit" ToRole="Ward" />
+    <NavigationProperty Name="RecruitJobs" Relationship="Self.FK_RecruitJob__Recruit" FromRole="Recruit" ToRole="RecruitJob" />
+    <NavigationProperty Name="SaveCandidates" Relationship="Self.FK_SaveCandidate__Recruit" FromRole="Recruit" ToRole="SaveCandidate" />
+  </EntityType>
+  <EntityType Name="RecruitJob">
+    <Key>
+      <PropertyRef Name="RecruitJobId" />
+    </Key>
+    <Property Name="RecruitJobId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RJTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="RJPosition" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RJAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="RJAmount" Type="Int32" />
+    <Property Name="RJ_Describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RJ_Require" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RJBenefit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RJ_WorkPlace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RJPostDate" Type="DateTime" Precision="3" />
+    <Property Name="RJExpirationDate" Type="DateTime" Precision="3" />
+    <Property Name="RJEmailContact" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RJNameContact" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RJPhoneContact" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="RJGender" Type="Int32" />
+    <Property Name="RJStatus" Type="Int32" />
+    <Property Name="RJType" Type="Int32" />
+    <Property Name="RJ_SalaryId" Type="Int32" />
+    <Property Name="RJ_ExperienceId" Type="Int32" />
+    <Property Name="RJ_RecruitId" Type="Int32" />
+    <Property Name="RJCityId" Type="Int32" />
+    <Property Name="RJDistrictId" Type="Int32" />
+    <Property Name="RJ_WardId" Type="Int32" />
+    <Property Name="RJ_ProfessionId" Type="Int32" />
+    <Property Name="RJ_LevelId" Type="Int32" />
+    <Property Name="RJ_WorkTypeId" Type="Int32" />
+    <Property Name="RJCount" Type="Int32" />
+    <NavigationProperty Name="CandidatePostResumes" Relationship="Self.FK_CandidatePostResume_RecruitJob" FromRole="RecruitJob" ToRole="CandidatePostResume" />
+    <NavigationProperty Name="City" Relationship="Self.FK_RecruitJob_City" FromRole="RecruitJob" ToRole="City" />
+    <NavigationProperty Name="District" Relationship="Self.FK_RecruitJob_District" FromRole="RecruitJob" ToRole="District" />
+    <NavigationProperty Name="Experience" Relationship="Self.FK_RecruitJob_Experience" FromRole="RecruitJob" ToRole="Experience" />
+    <NavigationProperty Name="LevelInfo" Relationship="Self.FK_RecruitJob_LevelInfo" FromRole="RecruitJob" ToRole="LevelInfo" />
+    <NavigationProperty Name="Profession" Relationship="Self.FK_RecruitJob_Profession" FromRole="RecruitJob" ToRole="Profession" />
+    <NavigationProperty Name="Recruit" Relationship="Self.FK_RecruitJob__Recruit" FromRole="RecruitJob" ToRole="Recruit" />
+    <NavigationProperty Name="Salary" Relationship="Self.FK_RecruitJob_Salary" FromRole="RecruitJob" ToRole="Salary" />
+    <NavigationProperty Name="WorkType" Relationship="Self.FK_RecruitJob_WorkType" FromRole="RecruitJob" ToRole="WorkType" />
+    <NavigationProperty Name="SaveJobs" Relationship="Self.FK_SaveJob_RecruitJob" FromRole="RecruitJob" ToRole="SaveJob" />
+  </EntityType>
+  <EntityType Name="Salary">
+    <Key>
+      <PropertyRef Name="SalaryId" />
+    </Key>
+    <Property Name="SalaryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SMin" Type="Double" />
+    <Property Name="SMax" Type="Double" />
+    <Property Name="SShow" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Candidates" Relationship="Self.FK_Candidate_Salary" FromRole="Salary" ToRole="Candidate" />
+    <NavigationProperty Name="RecruitJobs" Relationship="Self.FK_RecruitJob_Salary" FromRole="Salary" ToRole="RecruitJob" />
+  </EntityType>
+  <EntityType Name="SaveCandidate">
+    <Key>
+      <PropertyRef Name="SaveCandidateId" />
+    </Key>
+    <Property Name="SaveCandidateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SC_RecruitId" Type="Int32" />
+    <Property Name="SC_CandidateId" Type="Int32" />
+    <NavigationProperty Name="Candidate" Relationship="Self.FK_SaveCandidate_Candidate" FromRole="SaveCandidate" ToRole="Candidate" />
+    <NavigationProperty Name="Recruit" Relationship="Self.FK_SaveCandidate__Recruit" FromRole="SaveCandidate" ToRole="Recruit" />
+  </EntityType>
+  <EntityType Name="SaveJob">
+    <Key>
+      <PropertyRef Name="SaveJobId" />
+    </Key>
+    <Property Name="SaveJobId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SJ_CandidateId" Type="Int32" />
+    <Property Name="SJ_RecruitJobId" Type="Int32" />
+    <Property Name="SJStatus" Type="Boolean" />
+    <NavigationProperty Name="Candidate" Relationship="Self.FK_SaveJob_Candidate" FromRole="SaveJob" ToRole="Candidate" />
+    <NavigationProperty Name="RecruitJob" Relationship="Self.FK_SaveJob_RecruitJob" FromRole="SaveJob" ToRole="RecruitJob" />
+  </EntityType>
+  <EntityType Name="SignUpNewsletter">
+    <Key>
+      <PropertyRef Name="RegisterID" />
+    </Key>
+    <Property Name="RegisterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CheckNew" Type="Boolean" Nullable="false" />
+    <Property Name="CheckPost" Type="Boolean" Nullable="false" />
+    <Property Name="IdProfession" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Ward">
+    <Key>
+      <PropertyRef Name="WardId" />
+    </Key>
+    <Property Name="WardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WardName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="W_DistrictId" Type="Int32" />
+    <NavigationProperty Name="Candidates" Relationship="Self.FK_Candidate_Ward" FromRole="Ward" ToRole="Candidate" />
+    <NavigationProperty Name="District" Relationship="Self.FK_Ward__District" FromRole="Ward" ToRole="District" />
+    <NavigationProperty Name="Recruits" Relationship="Self.FK_Recruit_Ward" FromRole="Ward" ToRole="Recruit" />
+  </EntityType>
+  <EntityType Name="WebmasterInfo">
+    <Key>
+      <PropertyRef Name="WebmasterInfoId" />
+    </Key>
+    <Property Name="WebmasterInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WI_AspNetUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="WIUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WIPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WIFullName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WIType" Type="Int32" />
+    <Property Name="WIStatus" Type="Int32" />
+    <Property Name="WIGender" Type="Int32" />
+    <Property Name="WIBirthDay" Type="DateTime" Precision="0" />
+    <Property Name="WIDateStart" Type="DateTime" Precision="3" />
+    <Property Name="WIAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WIPosition" Type="Int32" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_WebmasterInfo_AspNetUsers" FromRole="WebmasterInfo" ToRole="AspNetUsers" />
+    <NavigationProperty Name="News" Relationship="Self.FK_New__WebmasterInfo" FromRole="WebmasterInfo" ToRole="New" />
+  </EntityType>
+  <EntityType Name="Website">
+    <Key>
+      <PropertyRef Name="WebsiteId" />
+    </Key>
+    <Property Name="WebsiteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WBanner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WFacebook" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WYoutube" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="WBanner2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WBanner3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="WorkType">
+    <Key>
+      <PropertyRef Name="WorkTypeId" />
+    </Key>
+    <Property Name="WorkTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WTName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Candidates" Relationship="Self.FK_Candidate_WorkType" FromRole="WorkType" ToRole="Candidate" />
+    <NavigationProperty Name="RecruitJobs" Relationship="Self.FK_RecruitJob_WorkType" FromRole="WorkType" ToRole="RecruitJob" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Candidate_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Candidate">
+        <PropertyRef Name="Cdd_AspNetUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Recruit_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="Recruit" Type="Self.Recruit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Recruit">
+        <PropertyRef Name="RI_AspNetUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WebmasterInfo_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="WebmasterInfo" Type="Self.WebmasterInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WebmasterInfo">
+        <PropertyRef Name="WI_AspNetUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Candidate_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Candidate">
+        <PropertyRef Name="Cdd_CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Candidate_District">
+    <End Role="District" Type="Self.District" Multiplicity="0..1" />
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="DistrictId" />
+      </Principal>
+      <Dependent Role="Candidate">
+        <PropertyRef Name="Cdd_DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Candidate_Experience">
+    <End Role="Experience" Type="Self.Experience" Multiplicity="0..1" />
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Experience">
+        <PropertyRef Name="ExperienceId" />
+      </Principal>
+      <Dependent Role="Candidate">
+        <PropertyRef Name="CP_ExperienceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Candidate_LevelInfo">
+    <End Role="LevelInfo" Type="Self.LevelInfo" Multiplicity="0..1" />
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LevelInfo">
+        <PropertyRef Name="LevelInfoId" />
+      </Principal>
+      <Dependent Role="Candidate">
+        <PropertyRef Name="CP_LevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Candidate_Profession">
+    <End Role="Profession" Type="Self.Profession" Multiplicity="0..1" />
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profession">
+        <PropertyRef Name="ProfessionId" />
+      </Principal>
+      <Dependent Role="Candidate">
+        <PropertyRef Name="CP_ProfessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Candidate_Salary">
+    <End Role="Salary" Type="Self.Salary" Multiplicity="0..1" />
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salary">
+        <PropertyRef Name="SalaryId" />
+      </Principal>
+      <Dependent Role="Candidate">
+        <PropertyRef Name="CP_SalaryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Candidate_Ward">
+    <End Role="Ward" Type="Self.Ward" Multiplicity="0..1" />
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ward">
+        <PropertyRef Name="WardId" />
+      </Principal>
+      <Dependent Role="Candidate">
+        <PropertyRef Name="Cdd_WardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Candidate_WorkType">
+    <End Role="WorkType" Type="Self.WorkType" Multiplicity="0..1" />
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkType">
+        <PropertyRef Name="WorkTypeId" />
+      </Principal>
+      <Dependent Role="Candidate">
+        <PropertyRef Name="CP_WorkTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CandidatePostResume_Candidate">
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="0..1" />
+    <End Role="CandidatePostResume" Type="Self.CandidatePostResume" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate">
+        <PropertyRef Name="CandidateId" />
+      </Principal>
+      <Dependent Role="CandidatePostResume">
+        <PropertyRef Name="CPR_CandidateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SaveCandidate_Candidate">
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="0..1" />
+    <End Role="SaveCandidate" Type="Self.SaveCandidate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate">
+        <PropertyRef Name="CandidateId" />
+      </Principal>
+      <Dependent Role="SaveCandidate">
+        <PropertyRef Name="SC_CandidateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SaveJob_Candidate">
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="0..1" />
+    <End Role="SaveJob" Type="Self.SaveJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate">
+        <PropertyRef Name="CandidateId" />
+      </Principal>
+      <Dependent Role="SaveJob">
+        <PropertyRef Name="SJ_CandidateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CandidatePostResume_RecruitJob">
+    <End Role="RecruitJob" Type="Self.RecruitJob" Multiplicity="0..1" />
+    <End Role="CandidatePostResume" Type="Self.CandidatePostResume" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecruitJob">
+        <PropertyRef Name="RecruitJobId" />
+      </Principal>
+      <Dependent Role="CandidatePostResume">
+        <PropertyRef Name="CPR_RecruitJobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profession__Career">
+    <End Role="Career" Type="Self.Career" Multiplicity="0..1" />
+    <End Role="Profession" Type="Self.Profession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Career">
+        <PropertyRef Name="CareerId" />
+      </Principal>
+      <Dependent Role="Profession">
+        <PropertyRef Name="PFCareerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_New__Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="New" Type="Self.New" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="New">
+        <PropertyRef Name="N_CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_District__City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="District" Type="Self.District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="District">
+        <PropertyRef Name="DT_CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Recruit_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="Recruit" Type="Self.Recruit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Recruit">
+        <PropertyRef Name="RI_CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecruitJob_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="RecruitJob" Type="Self.RecruitJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="RecruitJob">
+        <PropertyRef Name="RJCityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Recruit_CompanySize">
+    <End Role="CompanySize" Type="Self.CompanySize" Multiplicity="0..1" />
+    <End Role="Recruit" Type="Self.Recruit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanySize">
+        <PropertyRef Name="CompanySizeId" />
+      </Principal>
+      <Dependent Role="Recruit">
+        <PropertyRef Name="RI_CompanySizeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Recruit_District">
+    <End Role="District" Type="Self.District" Multiplicity="0..1" />
+    <End Role="Recruit" Type="Self.Recruit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="DistrictId" />
+      </Principal>
+      <Dependent Role="Recruit">
+        <PropertyRef Name="RI_DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecruitJob_District">
+    <End Role="District" Type="Self.District" Multiplicity="0..1" />
+    <End Role="RecruitJob" Type="Self.RecruitJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="DistrictId" />
+      </Principal>
+      <Dependent Role="RecruitJob">
+        <PropertyRef Name="RJDistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ward__District">
+    <End Role="District" Type="Self.District" Multiplicity="0..1" />
+    <End Role="Ward" Type="Self.Ward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="DistrictId" />
+      </Principal>
+      <Dependent Role="Ward">
+        <PropertyRef Name="W_DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecruitJob_Experience">
+    <End Role="Experience" Type="Self.Experience" Multiplicity="0..1" />
+    <End Role="RecruitJob" Type="Self.RecruitJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Experience">
+        <PropertyRef Name="ExperienceId" />
+      </Principal>
+      <Dependent Role="RecruitJob">
+        <PropertyRef Name="RJ_ExperienceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecruitJob_LevelInfo">
+    <End Role="LevelInfo" Type="Self.LevelInfo" Multiplicity="0..1" />
+    <End Role="RecruitJob" Type="Self.RecruitJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LevelInfo">
+        <PropertyRef Name="LevelInfoId" />
+      </Principal>
+      <Dependent Role="RecruitJob">
+        <PropertyRef Name="RJ_LevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_New__WebmasterInfo">
+    <End Role="WebmasterInfo" Type="Self.WebmasterInfo" Multiplicity="0..1" />
+    <End Role="New" Type="Self.New" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WebmasterInfo">
+        <PropertyRef Name="WebmasterInfoId" />
+      </Principal>
+      <Dependent Role="New">
+        <PropertyRef Name="N_WebmasterInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Recruit_Profession">
+    <End Role="Profession" Type="Self.Profession" Multiplicity="0..1" />
+    <End Role="Recruit" Type="Self.Recruit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profession">
+        <PropertyRef Name="ProfessionId" />
+      </Principal>
+      <Dependent Role="Recruit">
+        <PropertyRef Name="RI_ProfessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecruitJob_Profession">
+    <End Role="Profession" Type="Self.Profession" Multiplicity="0..1" />
+    <End Role="RecruitJob" Type="Self.RecruitJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profession">
+        <PropertyRef Name="ProfessionId" />
+      </Principal>
+      <Dependent Role="RecruitJob">
+        <PropertyRef Name="RJ_ProfessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Recruit_Ward">
+    <End Role="Ward" Type="Self.Ward" Multiplicity="0..1" />
+    <End Role="Recruit" Type="Self.Recruit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ward">
+        <PropertyRef Name="WardId" />
+      </Principal>
+      <Dependent Role="Recruit">
+        <PropertyRef Name="RI_WardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecruitJob__Recruit">
+    <End Role="Recruit" Type="Self.Recruit" Multiplicity="0..1" />
+    <End Role="RecruitJob" Type="Self.RecruitJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recruit">
+        <PropertyRef Name="RecruitId" />
+      </Principal>
+      <Dependent Role="RecruitJob">
+        <PropertyRef Name="RJ_RecruitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SaveCandidate__Recruit">
+    <End Role="Recruit" Type="Self.Recruit" Multiplicity="0..1" />
+    <End Role="SaveCandidate" Type="Self.SaveCandidate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recruit">
+        <PropertyRef Name="RecruitId" />
+      </Principal>
+      <Dependent Role="SaveCandidate">
+        <PropertyRef Name="SC_RecruitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecruitJob_Salary">
+    <End Role="Salary" Type="Self.Salary" Multiplicity="0..1" />
+    <End Role="RecruitJob" Type="Self.RecruitJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salary">
+        <PropertyRef Name="SalaryId" />
+      </Principal>
+      <Dependent Role="RecruitJob">
+        <PropertyRef Name="RJ_SalaryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecruitJob_WorkType">
+    <End Role="WorkType" Type="Self.WorkType" Multiplicity="0..1" />
+    <End Role="RecruitJob" Type="Self.RecruitJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkType">
+        <PropertyRef Name="WorkTypeId" />
+      </Principal>
+      <Dependent Role="RecruitJob">
+        <PropertyRef Name="RJ_WorkTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SaveJob_RecruitJob">
+    <End Role="RecruitJob" Type="Self.RecruitJob" Multiplicity="0..1" />
+    <End Role="SaveJob" Type="Self.SaveJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecruitJob">
+        <PropertyRef Name="RecruitJobId" />
+      </Principal>
+      <Dependent Role="SaveJob">
+        <PropertyRef Name="SJ_RecruitJobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="JobHuntEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Advertisements" EntityType="Self.Advertisement" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Candidates" EntityType="Self.Candidate" />
+    <EntitySet Name="CandidatePostResumes" EntityType="Self.CandidatePostResume" />
+    <EntitySet Name="Careers" EntityType="Self.Career" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="CompanySizes" EntityType="Self.CompanySize" />
+    <EntitySet Name="Districts" EntityType="Self.District" />
+    <EntitySet Name="Experiences" EntityType="Self.Experience" />
+    <EntitySet Name="LevelInfoes" EntityType="Self.LevelInfo" />
+    <EntitySet Name="News" EntityType="Self.New" />
+    <EntitySet Name="Professions" EntityType="Self.Profession" />
+    <EntitySet Name="Recruits" EntityType="Self.Recruit" />
+    <EntitySet Name="RecruitJobs" EntityType="Self.RecruitJob" />
+    <EntitySet Name="Salaries" EntityType="Self.Salary" />
+    <EntitySet Name="SaveCandidates" EntityType="Self.SaveCandidate" />
+    <EntitySet Name="SaveJobs" EntityType="Self.SaveJob" />
+    <EntitySet Name="SignUpNewsletters" EntityType="Self.SignUpNewsletter" />
+    <EntitySet Name="Wards" EntityType="Self.Ward" />
+    <EntitySet Name="WebmasterInfoes" EntityType="Self.WebmasterInfo" />
+    <EntitySet Name="Websites" EntityType="Self.Website" />
+    <EntitySet Name="WorkTypes" EntityType="Self.WorkType" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Candidate_AspNetUsers" Association="Self.FK_Candidate_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Candidate" EntitySet="Candidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Recruit_AspNetUsers" Association="Self.FK_Recruit_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Recruit" EntitySet="Recruits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WebmasterInfo_AspNetUsers" Association="Self.FK_WebmasterInfo_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="WebmasterInfo" EntitySet="WebmasterInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Candidate_City" Association="Self.FK_Candidate_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Candidate" EntitySet="Candidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Candidate_District" Association="Self.FK_Candidate_District">
+      <End Role="District" EntitySet="Districts" />
+      <End Role="Candidate" EntitySet="Candidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Candidate_Experience" Association="Self.FK_Candidate_Experience">
+      <End Role="Experience" EntitySet="Experiences" />
+      <End Role="Candidate" EntitySet="Candidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Candidate_LevelInfo" Association="Self.FK_Candidate_LevelInfo">
+      <End Role="LevelInfo" EntitySet="LevelInfoes" />
+      <End Role="Candidate" EntitySet="Candidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Candidate_Profession" Association="Self.FK_Candidate_Profession">
+      <End Role="Profession" EntitySet="Professions" />
+      <End Role="Candidate" EntitySet="Candidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Candidate_Salary" Association="Self.FK_Candidate_Salary">
+      <End Role="Salary" EntitySet="Salaries" />
+      <End Role="Candidate" EntitySet="Candidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Candidate_Ward" Association="Self.FK_Candidate_Ward">
+      <End Role="Ward" EntitySet="Wards" />
+      <End Role="Candidate" EntitySet="Candidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Candidate_WorkType" Association="Self.FK_Candidate_WorkType">
+      <End Role="WorkType" EntitySet="WorkTypes" />
+      <End Role="Candidate" EntitySet="Candidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CandidatePostResume_Candidate" Association="Self.FK_CandidatePostResume_Candidate">
+      <End Role="Candidate" EntitySet="Candidates" />
+      <End Role="CandidatePostResume" EntitySet="CandidatePostResumes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SaveCandidate_Candidate" Association="Self.FK_SaveCandidate_Candidate">
+      <End Role="Candidate" EntitySet="Candidates" />
+      <End Role="SaveCandidate" EntitySet="SaveCandidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SaveJob_Candidate" Association="Self.FK_SaveJob_Candidate">
+      <End Role="Candidate" EntitySet="Candidates" />
+      <End Role="SaveJob" EntitySet="SaveJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CandidatePostResume_RecruitJob" Association="Self.FK_CandidatePostResume_RecruitJob">
+      <End Role="RecruitJob" EntitySet="RecruitJobs" />
+      <End Role="CandidatePostResume" EntitySet="CandidatePostResumes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profession__Career" Association="Self.FK_Profession__Career">
+      <End Role="Career" EntitySet="Careers" />
+      <End Role="Profession" EntitySet="Professions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_New__Category" Association="Self.FK_New__Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="New" EntitySet="News" />
+    </AssociationSet>
+    <AssociationSet Name="FK_District__City" Association="Self.FK_District__City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="District" EntitySet="Districts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Recruit_City" Association="Self.FK_Recruit_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Recruit" EntitySet="Recruits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecruitJob_City" Association="Self.FK_RecruitJob_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="RecruitJob" EntitySet="RecruitJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Recruit_CompanySize" Association="Self.FK_Recruit_CompanySize">
+      <End Role="CompanySize" EntitySet="CompanySizes" />
+      <End Role="Recruit" EntitySet="Recruits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Recruit_District" Association="Self.FK_Recruit_District">
+      <End Role="District" EntitySet="Districts" />
+      <End Role="Recruit" EntitySet="Recruits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecruitJob_District" Association="Self.FK_RecruitJob_District">
+      <End Role="District" EntitySet="Districts" />
+      <End Role="RecruitJob" EntitySet="RecruitJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ward__District" Association="Self.FK_Ward__District">
+      <End Role="District" EntitySet="Districts" />
+      <End Role="Ward" EntitySet="Wards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecruitJob_Experience" Association="Self.FK_RecruitJob_Experience">
+      <End Role="Experience" EntitySet="Experiences" />
+      <End Role="RecruitJob" EntitySet="RecruitJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecruitJob_LevelInfo" Association="Self.FK_RecruitJob_LevelInfo">
+      <End Role="LevelInfo" EntitySet="LevelInfoes" />
+      <End Role="RecruitJob" EntitySet="RecruitJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_New__WebmasterInfo" Association="Self.FK_New__WebmasterInfo">
+      <End Role="WebmasterInfo" EntitySet="WebmasterInfoes" />
+      <End Role="New" EntitySet="News" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Recruit_Profession" Association="Self.FK_Recruit_Profession">
+      <End Role="Profession" EntitySet="Professions" />
+      <End Role="Recruit" EntitySet="Recruits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecruitJob_Profession" Association="Self.FK_RecruitJob_Profession">
+      <End Role="Profession" EntitySet="Professions" />
+      <End Role="RecruitJob" EntitySet="RecruitJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Recruit_Ward" Association="Self.FK_Recruit_Ward">
+      <End Role="Ward" EntitySet="Wards" />
+      <End Role="Recruit" EntitySet="Recruits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecruitJob__Recruit" Association="Self.FK_RecruitJob__Recruit">
+      <End Role="Recruit" EntitySet="Recruits" />
+      <End Role="RecruitJob" EntitySet="RecruitJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SaveCandidate__Recruit" Association="Self.FK_SaveCandidate__Recruit">
+      <End Role="Recruit" EntitySet="Recruits" />
+      <End Role="SaveCandidate" EntitySet="SaveCandidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecruitJob_Salary" Association="Self.FK_RecruitJob_Salary">
+      <End Role="Salary" EntitySet="Salaries" />
+      <End Role="RecruitJob" EntitySet="RecruitJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecruitJob_WorkType" Association="Self.FK_RecruitJob_WorkType">
+      <End Role="WorkType" EntitySet="WorkTypes" />
+      <End Role="RecruitJob" EntitySet="RecruitJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SaveJob_RecruitJob" Association="Self.FK_SaveJob_RecruitJob">
+      <End Role="RecruitJob" EntitySet="RecruitJobs" />
+      <End Role="SaveJob" EntitySet="SaveJobs" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

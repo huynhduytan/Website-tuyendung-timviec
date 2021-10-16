@@ -1,0 +1,175 @@
+﻿@model PagedList.IPagedList<JobHunt.BU.DTO.CandidateDTO>
+@using PagedList.Mvc;
+@using JobHunt.BU.DTO
+@{
+    ViewBag.Title = "Danh sách ứng viên";
+    Layout = "~/Views/Shared/_LayoutLogged.cshtml";
+}
+
+<div class="col-lg-9 column">
+    <div class="padding-left">
+        <div class="emply-resume-sec">
+            @*<h3>Resume</h3>*@
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var cdd in Model)
+                {
+                    <div class="emply-resume-list active">
+                        <div class="emply-resume-thumb">
+                            <img src="@cdd.CPAvatar" alt="">
+                        </div>
+                        <div class="emply-resume-info">
+                            <h3><a href="#" title="">@cdd.CddFullName</a></h3>
+                            <span><i>UX / UI Designer</i> at Atract Solutions</span>
+                            <p><i class="la la-map-marker"></i>@cdd.CddAddress</p>
+                        </div>
+                        <div class="action-resume">
+                            <div class="action-center">
+                                <span>Chọn <i class="la la-angle-down"></i></span>
+                                <ul style="display: none;">
+                                    <li class="open-letter"><a href="@Url.Action("DownloadCoverLetter", "Candidate", new { id = cdd.CandidateId })" title="">Tải CV đính kèm</a></li>
+                                    <li><a href="@Url.Action("PrintPartialViewToPdf", "Candidate", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(cdd.CddFullName, cdd.CandidateId) })" title="">In CV</a></li>
+                                    <li><a href="@Url.Action("DetailCandidate", "Candidate", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(cdd.CddFullName, cdd.CandidateId) })" title="" target="_blank">Xem trang cá nhân</a></li>
+                                    @*<li class="open-contact"><a href="#" title="">Send a Message</a></li>*@
+                                    @*<li><a href="#" title="">View Profile</a></li>*@
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="del-resume">
+                            <a href="#" title=""><i class="la la-trash-o"></i></a>
+                        </div>
+                    </div><!-- Emply List -->
+                }
+            }
+            <div class="pagination">
+                @Html.PagedListPager(Model, page => Url.Action("ListCandidatesApplied", new { page }))
+            </div><!-- Pagination -->
+            @*<div class="emply-resume-list">
+            <div class="emply-resume-thumb">
+                <img src="/Assets/client/images/resource/er2.jpg" alt="">
+            </div>
+            <div class="emply-resume-info">
+                <h3><a href="#" title="">Ali TUFAN</a></h3>
+                <span><i>UX / UI Designer</i> at Atract Solutions</span>
+                <p><i class="la la-map-marker"></i>Istanbul / Turkey</p>
+            </div>
+            <div class="action-resume">
+                <div class="action-center">
+                    <span>Action <i class="la la-angle-down"></i></span>
+                    <ul>
+                        <li class="open-letter"><a href="#" title="">Cover Letter</a></li>
+                        <li><a href="#" title="">Download CV</a></li>
+                        <li><a href="#" title="">Linked-in Profile</a></li>
+                        <li class="open-contact"><a href="#" title="">Send a Message</a></li>
+                        <li><a href="#" title="">View Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="del-resume">
+                <a href="#" title=""><i class="la la-trash-o"></i></a>
+            </div>
+        </div><!-- Emply List -->
+        <div class="emply-resume-list">
+            <div class="emply-resume-thumb">
+                <img src="/Assets/client/images/resource/er3.jpg" alt="">
+            </div>
+            <div class="emply-resume-info">
+                <h3><a href="#" title="">Ali TUFAN</a></h3>
+                <span><i>UX / UI Designer</i> at Atract Solutions</span>
+                <p><i class="la la-map-marker"></i>Istanbul / Turkey</p>
+            </div>
+            <div class="action-resume">
+                <div class="action-center">
+                    <span>Action <i class="la la-angle-down"></i></span>
+                    <ul>
+                        <li class="open-letter"><a href="#" title="">Cover Letter</a></li>
+                        <li><a href="#" title="">Download CV</a></li>
+                        <li><a href="#" title="">Linked-in Profile</a></li>
+                        <li class="open-contact"><a href="#" title="">Send a Message</a></li>
+                        <li><a href="#" title="">View Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="del-resume">
+                <a href="#" title=""><i class="la la-trash-o"></i></a>
+            </div>
+        </div><!-- Emply List -->
+        <div class="emply-resume-list">
+            <div class="emply-resume-thumb">
+                <img src="/Assets/client/images/resource/er4.jpg" alt="">
+            </div>
+            <div class="emply-resume-info">
+                <h3><a href="#" title="">Ali TUFAN</a></h3>
+                <span><i>UX / UI Designer</i> at Atract Solutions</span>
+                <p><i class="la la-map-marker"></i>Istanbul / Turkey</p>
+            </div>
+            <div class="action-resume">
+                <div class="action-center">
+                    <span>Action <i class="la la-angle-down"></i></span>
+                    <ul>
+                        <li class="open-letter"><a href="#" title="">Cover Letter</a></li>
+                        <li><a href="#" title="">Download CV</a></li>
+                        <li><a href="#" title="">Linked-in Profile</a></li>
+                        <li class="open-contact"><a href="#" title="">Send a Message</a></li>
+                        <li><a href="#" title="">View Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="del-resume">
+                <a href="#" title=""><i class="la la-trash-o"></i></a>
+            </div>
+        </div><!-- Emply List -->
+        <div class="emply-resume-list">
+            <div class="emply-resume-thumb">
+                <img src="/Assets/client/images/resource/er5.jpg" alt="">
+            </div>
+            <div class="emply-resume-info">
+                <h3><a href="#" title="">Ali TUFAN</a></h3>
+                <span><i>UX / UI Designer</i> at Atract Solutions</span>
+                <p><i class="la la-map-marker"></i>Istanbul / Turkey</p>
+            </div>
+            <div class="action-resume">
+                <div class="action-center">
+                    <span>Action <i class="la la-angle-down"></i></span>
+                    <ul>
+                        <li class="open-letter"><a href="#" title="">Cover Letter</a></li>
+                        <li><a href="#" title="">Download CV</a></li>
+                        <li><a href="#" title="">Linked-in Profile</a></li>
+                        <li class="open-contact"><a href="#" title="">Send a Message</a></li>
+                        <li><a href="#" title="">View Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="del-resume">
+                <a href="#" title=""><i class="la la-trash-o"></i></a>
+            </div>
+        </div><!-- Emply List -->
+        <div class="emply-resume-list">
+            <div class="emply-resume-thumb">
+                <img src="/Assets/client/images/resource/er6.jpg" alt="">
+            </div>
+            <div class="emply-resume-info">
+                <h3><a href="#" title="">Ali TUFAN</a></h3>
+                <span><i>UX / UI Designer</i> at Atract Solutions</span>
+                <p><i class="la la-map-marker"></i>Istanbul / Turkey</p>
+            </div>
+            <div class="action-resume">
+                <div class="action-center">
+                    <span>Action <i class="la la-angle-down"></i></span>
+                    <ul>
+                        <li class="open-letter"><a href="#" title="">Cover Letter</a></li>
+                        <li><a href="#" title="">Download CV</a></li>
+                        <li><a href="#" title="">Linked-in Profile</a></li>
+                        <li class="open-contact"><a href="#" title="">Send a Message</a></li>
+                        <li><a href="#" title="">View Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="del-resume">
+                <a href="#" title=""><i class="la la-trash-o"></i></a>
+            </div>
+        </div><!-- Emply List -->*@
+        </div>
+    </div>
+</div>
+

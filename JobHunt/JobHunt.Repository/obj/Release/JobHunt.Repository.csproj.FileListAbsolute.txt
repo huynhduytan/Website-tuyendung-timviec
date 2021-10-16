@@ -1,0 +1,30 @@
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\bin\Release\JobHunt.Repository.dll.config
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\bin\Release\JobHunt.Repository.dll
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\bin\Release\JobHunt.Repository.pdb
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\bin\Release\EntityFramework.dll
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\bin\Release\EntityFramework.SqlServer.dll
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\bin\Release\JobHunt.Model.dll
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\bin\Release\JobHunt.Model.pdb
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\bin\Release\JobHunt.Model.dll.config
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\bin\Release\EntityFramework.xml
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\bin\Release\EntityFramework.SqlServer.xml
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\obj\Release\JobHunt.Repository.csprojAssemblyReference.cache
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\obj\Release\JobHunt.Repository.csproj.CoreCompileInputs.cache
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\obj\Release\JobHunt.Repository.csproj.CopyComplete
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\obj\Release\JobHunt.Repository.dll
+D:\Thuc tap tot nghiep (TTTN)\Project\JobHunt\JobHunt.Repository\obj\Release\JobHunt.Repository.pdb
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\bin\Release\JobHunt.Repository.dll.config
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\bin\Release\JobHunt.Repository.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\bin\Release\JobHunt.Repository.pdb
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\bin\Release\EntityFramework.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\bin\Release\EntityFramework.SqlServer.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\bin\Release\JobHunt.Model.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\bin\Release\JobHunt.Model.pdb
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\bin\Release\JobHunt.Model.dll.config
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\bin\Release\EntityFramework.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\bin\Release\EntityFramework.SqlServer.xml
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\obj\Release\JobHunt.Repository.csprojAssemblyReference.cache
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\obj\Release\JobHunt.Repository.csproj.CoreCompileInputs.cache
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\obj\Release\JobHunt.Repository.csproj.CopyComplete
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\obj\Release\JobHunt.Repository.dll
+D:\Thuc tap tot nghiep (TTTN)\Final project\JobHunt\JobHunt\JobHunt.Repository\obj\Release\JobHunt.Repository.pdb

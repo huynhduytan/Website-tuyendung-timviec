@@ -1,0 +1,80 @@
+{
+  "js":{
+    "note": "ok",
+    "run": true,
+    "minifile": false,
+    "path": "src/js/",
+    "src": [
+      {
+        "path": "_services.js"
+      },
+      {
+        "path": "validator.js"
+      },
+      {
+        "path": "loading.js"
+      }
+    ],
+    "dest": "../../../Assets/admin/js/script.js"
+  },
+  "scss":{
+    "note": "ok",
+    "run": true,
+    "path": "src/scss/",
+    "src": [
+      {
+        "path": "style.scss"
+      }
+    ],
+    "dest": "../../../Assets/admin/css/becss.css"
+  },
+  "pug":{
+    "note": "ok",
+    "run": false,
+    "path": "src/pug/",
+    "src": [
+      {
+        "path": "header.pug",
+        "run": true,
+        "dest": "dist/"
+      },
+      {
+        "path": "footer.pug",
+        "run": true,
+        "dest": "dist/"
+      },
+      {
+        "path": "home.pug",
+        "run": false,
+        "dest": "dist/"
+      },
+      {
+        "path": "detail.pug",
+        "run": true,
+        "dest": "dist/"
+      }
+    ]
+  },
+  "copy":{
+    "note": "đang phát triển, ko nên dùng!",
+    "run": false,
+    "src": "to_copy_html/",
+    "files": [
+      {
+        "run": false,
+        "src": "anythings.php",
+        "dest": "test_copy/path2/"
+      },
+      {
+        "run": false,
+        "src": "index.php",
+        "dest": "test_copy/path1/"
+      },
+      {
+        "run": false,
+        "src": "index.php",
+        "dest": "test_copy/path3/"
+      }
+    ]
+  }
+}

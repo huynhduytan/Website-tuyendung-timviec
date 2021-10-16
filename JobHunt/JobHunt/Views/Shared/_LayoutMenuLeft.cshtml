@@ -1,0 +1,97 @@
+﻿@using JobHunt.BU.Manage
+@using JobHunt.BU.DTO
+@using Microsoft.AspNet.Identity
+@{
+    var InfoCandidate = (CandidateDTO)(new CandidateManage().GetCandidateInfoByIdAspNetUser(User.Identity.GetUserId()));
+}
+<aside class="col-lg-3 column border-right">
+    <div class="widget">
+        <div class="tree_widget-sec">
+            @if (Request.IsAuthenticated)
+            {
+                if (User.IsInRole("Người tìm việc"))
+                {
+                    <ul>
+                        <li class="inner-child">
+                            <a title=""><i class="la la-briefcase"></i>Hồ sơ cá nhân</a>
+                            <ul>
+                                <li><a href="@Url.Action("CandidateProfile", "Candidate")" title="">Quản lý hồ sơ</a></li>
+                                <li><a href="@Url.Action("CandidateUploadCV", "Candidate")" title="">CV - Hồ sơ đính kèm</a></li>
+                            </ul>
+                        </li>
+                        <li class="inner-child">
+                            <a href="#" title=""><i class="la la-paper-plane"></i>Việc làm của tôi</a>
+                            <ul>
+                                <li><a href="@Url.Action("SaveJobs", "Candidate")" title="">Việc đã lưu</a></li>
+                                <li><a href="@Url.Action("AppliedJobs", "Candidate")" title="">Việc đã ứng tuyển</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ChangePassword", "Candidate")" title=""><i class="la la-flash"></i>Đổi mật khẩu</a>
+                        </li>
+                        @*<li class="inner-child">
+                            <a href="#" title=""><i class="la la-user"></i>Tài khoản</a>
+                            <ul>
+                                <li><a href="@Url.Action("UpdateAccount", "Candidate")" title="">Chỉnh sửa tài khoản</a></li>
+                            </ul>
+                        </li>*@
+                        <li>
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a href="javascript:document.getElementById('logoutForm').submit()" title="Đăng xuất khỏi hệ thống"><i class="la la-unlink"></i> Đăng xuất</a>
+
+                            }
+
+                        </li>
+                    </ul>
+                }
+                else if(User.IsInRole("Người tuyển dụng"))
+                {
+                    <ul>
+                        <li class="inner-child active">
+                            <a href="#" title=""><i class="la la-file-text"></i>Thông tin công ty</a>
+                            <ul style="display: block;">
+                                <li><a href="@Url.Action("ProfileRecruit","Recruit")" title="Hồ sơ công ty">Hồ sơ công ty</a></li>
+                            </ul>
+                        </li>
+                        <li class="inner-child">
+                            <a title="Quản lý công việc"><i class="la la-briefcase"></i>Quản lý công việc</a>
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("PostJob","Recruit")" title="Đăng tin tuyển dụng">Đăng tin tuyển dụng</a>
+                                </li>
+                                <li><a href="@Url.Action("ListJobsPost","Recruit")" title="Danh sách công việc">Danh sách công việc</a></li>
+                                <li><a href="@Url.Action("ListCandidatesApplied","Recruit")" title="Danh sách ứng viên">Danh sách ứng viên</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="@Url.Action("ChangePassword","Recruit")" title="Đổi mật khẩu"><i class="la la-lock"></i>Đổi mật khẩu</a>
+                        </li>
+                        <li>
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a href="javascript:document.getElementById('logoutForm').submit()" title="Đăng xuất khỏi hệ thống"><i class="la la-unlink"></i> Đăng xuất</a>
+                            }
+                        </li>
+                    </ul>
+                }
+            }
+        </div>
+    </div>
+    @*<div class="widget">
+            <div class="skill-perc">
+                <h3>Skills Percentage </h3>
+                <p>Put value for "Cover Image" field to increase your skill up to "15%"</p>
+                <div class="skills-bar">
+                    <span>85%</span>
+                    <div class="second circle"
+                         data-size="155"
+                         data-thickness="60">
+                    </div>
+                </div>
+            </div>
+        </div>*@
+</aside>

@@ -1,0 +1,135 @@
+﻿@model JobHunt.BU.DTO.NewDTO
+@{
+    ViewBag.Title = "Chi tiết tin tức";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@Html.Hidden("IdNew", Model.NewsId)
+<div class="wrap__content" id="detail-customer">
+    <section class="content cus-detail main__content">
+        <div class="cus-detail__top main__banner">
+            <div>
+                <div class="">
+                    <div class="main__title text-center">
+                        <h1 class="main__title--content">Chi tiết tin tức</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-flud">
+            <div class="content__inner main-content">
+                <div class="cus-detail__view cus-edit">
+                    <form id="CreateNew" class="customer-form">
+                        <div class="cus-detail__content">
+                            <div class="cus-detail__content--title">
+                                <h3>Thông tin bài viết<span class="red">(*)</span></h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Tiêu đề:</td>
+                                            <td class="input-field">
+                                                @Html.EditorFor(m => m.NTitle, new { htmlAttributes = new { @class = "input-base", placeholder = "Tiêu đề" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Mô tả ngắn gọn:</td>
+                                            <td class="input-field">
+                                                @Html.EditorFor(m => m.NQuote, new { htmlAttributes = new { @class = "input-base", placeholder = "Mô tả ngắn gọn" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Mô tả chi tiết:</td>
+                                            <td class="input-field">
+                                                <div class="summernote" id="NDetail">@Html.Raw(Model.NDetail)</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Ảnh đại diện:</td>
+                                            <td class="input-field">
+                                                <div class="btnimagenew display-inline-block">
+                                                    <label for="image_uploads" class="lableforimage">Chọn ảnh để tải lên (PNG, JPG)</label>
+                                                    <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple style="display: none">
+                                                </div>
+                                                <div class="display-inline-block">
+                                                    <img src="@Model.NAvatar" alt="Ảnh đại diện tin tức" id="avatarnew" class="avatarimagenew" />
+
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                                <div class="col-xl-4">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Danh mục:</td>
+                                            <td class="input-field date">
+                                                @Html.DropDownListFor(m => m.N_CategoryId, (IEnumerable<SelectListItem>)ViewBag.ListCategories, "--- Danh mục---", new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-xl-4">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Trạng thái:</td>
+                                            <td class="input-field date">
+                                                @Html.DropDownListFor(m => m.Nstatus,
+                                            new List<SelectListItem>
+                                            {
+                                                new SelectListItem { Value = ""+(int)JobHunt.BU.Common.Enum.StatusNew.Active, Text = "Hoạt động"},
+                                                new SelectListItem { Value = ""+(int)JobHunt.BU.Common.Enum.StatusNew.Block, Text = "Ngừng hoạt động"},
+                                            }, new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-xl-4">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Loại tin:</td>
+                                            <td class="input-field date">
+                                                @Html.DropDownListFor(m => m.NType,
+                                            new List<SelectListItem>
+                                            {
+                                                new SelectListItem { Value = "" +(int)JobHunt.BU.Common.Enum.TypeNew.Hot, Text = "Nổi bật"},
+                                                new SelectListItem { Value = "" +(int)JobHunt.BU.Common.Enum.TypeNew.Normal, Text = "Thường"},
+                                            }, new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear-fix"></div>
+                        @*</div>*@
+
+                        <div class="form-btn text-center">
+                            <button class="btn btn-primary margin-right-30 updatenew detailcm" type="submit" id="new-2">Lưu</button>
+                            <a href="/Admin/Customer" class="btn danger bt-danger btn--cancel-edit-cm">Hủy</a>
+                            <a class="btn btn-del-cm warning" onclick="document.showDel('cm')" input-id-cm="" page-cm="detail">Xóa</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="popup--del popup--base popup--del-cm disabled">
+                    <div class="container-flud">
+                        <div class="body-layer layer-cm popup__bg"></div>
+                        <div class="pop-up-del pop-up-del-cm popup__content text-center">
+                            <div class="popup__content2">
+                                <h3>Thông báo</h3>
+                                <p>Bạn có muốn xóa khách hàng này không?</p>
+                                <div>
+                                    <a title="Đồng ý" yes="yes" class="bt-success success btn-yes-cm">Đồng ý</a>
+                                    <a class="btn-primary bt-close btn-close-cm" title="Hủy bỏ" cancel="cancel">Hủy bỏ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

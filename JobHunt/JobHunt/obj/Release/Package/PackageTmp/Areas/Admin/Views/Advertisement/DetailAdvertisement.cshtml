@@ -1,0 +1,156 @@
+﻿@model JobHunt.BU.DTO.AdvertisementDTO
+@{
+    ViewBag.Title = "Chỉnh sửa quảng cáo";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Hidden("AdvertisementId", Model.AdvertisementId)
+<div class="wrap__content" id="detail-customer">
+    <section class="content cus-detail main__content">
+        <div class="cus-detail__top main__banner">
+            <div>
+                <div class="">
+                    <div class="main__title text-center">
+                        <h1 class="main__title--content">Chỉnh sửa lịch quảng cáo</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-flud">
+            <div class="content__inner main-content">
+                <div class="cus-detail__view cus-edit">
+                    <form class="updateadvertisement-form" id="advertisement-form">
+                        <div class="cus-detail__content">
+                            <div class="cus-detail__content--title">
+                                <h3>Thông tin quảng cáo<span class="red">(*)</span></h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Thời gian bắt đầu<span class="red">(*):</span></td>
+                                            <td class="input-field date">
+                                                @Html.EditorFor(m=>m.AdStartDateString, new { htmlAttributes = new { @class = "input-base textinput", @type = "date", @required = "required" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Thời gian kết thúc<span class="red">(*):</span></td>
+                                            <td class="input-field date">
+                                                @Html.EditorFor(m=>m.AdEndDateString, new { htmlAttributes = new { @class = "input-base passwordtext textinput", placeholder = "Mật khẩu: Nguyenvana2019", @type = "date", @required = "required" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Vị trí quảng cáo<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.DropDownListFor(m=>m.AdPosition,
+                                                new List<SelectListItem>
+                                                {
+                                                    new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.PositionBookAd.Slider1, Text = "Slider 1"},
+                                                    new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.PositionBookAd.Slider2, Text = "Slider 2"},
+                                                    new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.PositionBookAd.Slider3, Text = "Slider 3"}
+
+                                                }, new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                        @*<tr>
+                                                <td class="tb_label bold">Tên đầy đủ<span class="red">(*):</span></td>
+                                                <td class="input-field">
+                                                    @Html.EditorFor(m=>m.CddFullName", new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Tên đầy đủ: Nguyễn Văn A" } })
+                                                </td>
+                                            </tr>*@
+                                        <tr>
+                                            <td class="tb_label bold">Trạng thái:<span class="red">(*)</span></td>
+                                            <td class="input-field date">
+                                                @Html.DropDownListFor(m=>m.AdStatus,
+                                                    new List<SelectListItem>
+                                                    {
+                                                        new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.StatusAdvertisement.Show, Text = "Hiển thị"},
+                                                        new SelectListItem { Value = ""+(int?)JobHunt.BU.Common.Enum.StatusAdvertisement.Hide, Text = "Ẩn"},
+                                                    }, new { @class = "chosen form-control" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="cus-detail__content">
+                            <div class="cus-detail__content--title">
+                                <h3>Thông tin liên hệ<span class="red">(*)</span></h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Tên đơn vị<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.EditorFor(m=>m.AdName, new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Link facebook: https://facebook.com/duongtiendatt" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Số điện thoại<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.EditorFor(m=>m.AdPhone, new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Số điện thoại: 0336515294" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Email<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.EditorFor(m=>m.AdEmail, new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Email: nguyenvana@gmail.com" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Địa chỉ<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.EditorFor(m=>m.AdAddress, new { htmlAttributes = new { @class = "input-base textinput", placeholder = "Link facebook: https://facebook.com/duongtiendatt" } })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cus-detail__content col-md-12">
+                            <div class="cus-detail__content--title">
+                                <h3>Hình ảnh quảng cáo<span class="red">(*)</span></h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td class="tb_label bold">Link ảnh<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @Html.EditorFor(m=>m.AdLink, new { htmlAttributes = new { @class = "input-base textinput inputpass", placeholder = "Link facebook: https://facebook.com/duongtiendatt", @type = "url" } })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tb_label bold">Chọn ảnh<span class="red">(*):</span></td>
+                                            <td class="input-field">
+                                                @*<div class="btnimagenew display-inline-block">
+                                                        <label for="image_uploads" class="lableforimage">Chọn ảnh để tải lên (PNG, JPG)</label>
+                                                        <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple="" style="display: none">
+                                                    </div>*@
+                                                <div class="display-inline-block imagenew imageadvert">
+                                                    <input type="file" id="image_uploads_book" name="image_uploads" accept="image/*">
+                                                    <img src="@Model.AdImage" alt="Ảnh đại diện tin tức" id="bookimage" class="avatarimagenew" style="display: inline-block;">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-btn text-center">
+                            <button class="btn btn-primary margin-right-30 updateadvertisement" type="submit" id="advertisement-2">Lưu</button>
+                            <a href="@Url.Action("","advertisement")" class="btn danger bt-danger btn--cancel-edit-cm">Hủy</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

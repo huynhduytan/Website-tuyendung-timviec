@@ -1,0 +1,189 @@
+﻿@using JobHunt.BU.Manage
+@using JobHunt.BU.DTO
+@using Microsoft.AspNet.Identity
+@model JobHunt.BU.DTO.CandidateDTO
+@{
+    ViewBag.Title = "Hồ sơ cá nhân || " + Model.CddFullName;
+    Layout = "~/Views/Shared/_LayoutLogged.cshtml";
+
+    //Lấy thông tin tỉnh+huyện
+    DistrictDTO getDistrict = new DistrictManage().GetDistrictById(Model.Cdd_DistrictId);
+
+    //Lấy thông tin xã
+    WardDTO getWard = new WardManage().GetWardById(Model.Cdd_WardId);
+
+}
+@Html.Hidden("TypeAccount", 1)
+@Html.Hidden("IdCandidate", Model.CandidateId)
+@Html.Hidden("DistrictIdGet", Model.Cdd_DistrictId)
+@Html.Hidden("WardIdGet", Model.Cdd_WardId)
+<div class="col-lg-9 column">
+    <div class="padding-left">
+        <div class="profile-title">
+            <h3>Hồ sơ cá nhân</h3>
+            <div class="upload-img-bar">
+                <span class="round"><img src="@Model.CPAvatar" alt="" id="avatarlink" style="width: 156px; height: 156px;" class="avatarlinkclass" /><i>x</i></span>
+                <div class="upload-info">
+                    <a title="" id="chooseAvatar">Tải lên</a>
+                    <input type="file" name="" value="" class="disabled" id="updateavatar" />
+                    <span>Kích thước tệp tối đa là 2MB, Kích thước tối thiểu: 270x210 Và các tệp phù hợp là .jpg & .png & .jpeg</span>
+                </div>
+            </div>
+        </div>
+
+        @*Cập nhật thông tin chung*@
+        <div class="profile-form-edit">
+            <form id="valid-update-candidate-profile">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <span class="pf-title">Tên đầy đủ</span>
+                        <div class="pf-field">
+                            @Html.EditorFor(model => model.CddFullName, new { htmlAttributes = new { placeholder = " VD: Dương Tiến Đạt", @required= "required" } })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Tuổi</span>
+                        <div class="pf-field">
+                            @Html.EditorFor(model => model.CddAge, new { htmlAttributes = new { placeholder = " VD: Tuổi", @required = "required" } })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Giới tính</span>
+                        <div class="pf-field">
+                            @Html.DropDownListFor(model => model.CddSex,
+                                        new List<SelectListItem>
+                                        {
+                                            new SelectListItem { Value = "1", Text = "Nam"},
+                                            new SelectListItem { Value = "2", Text = "Nữ"},
+                                            new SelectListItem {Value = "0", Text = "Khác" }
+                                        }, new { @class = "chosen" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Công việc</span>
+                        <div class="pf-field">
+                            @Html.DropDownListFor(model => model.CP_ProfessionId, (IEnumerable<SelectListItem>)ViewBag.ListProfesstions, "--- Công việc ---", new { @class = "chosen-city" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Mức lương mong đợi</span>
+                        <div class="pf-field">
+                            @Html.DropDownListFor(model => model.CP_SalaryId, (IEnumerable<SelectListItem>)ViewBag.ListSalaries, "--- Mức lương ---", new { @class = "chosen" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Kinh nghiệm</span>
+                        <div class="pf-field">
+                            @Html.DropDownListFor(model => model.CP_ExperienceId, (IEnumerable<SelectListItem>)ViewBag.ListExperiences, "--- Kinh nghiệm ---", new { @class = "chosen" })
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <span class="pf-title">Mô tả về kinh nghiệm đã đạt được</span>
+                        <div class="pf-field">
+                            @Html.TextAreaFor(model => model.CPExperience, new { @required = "required" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Trình độ</span>
+                        <div class="pf-field">
+                            @Html.DropDownListFor(model => model.CP_LevelId, (IEnumerable<SelectListItem>)ViewBag.ListLevels, "--- Trình độ ---", new { @class = "chosen" })
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <span class="pf-title">Hình thức làm việc</span>
+                        <div class="pf-field">
+                            @Html.DropDownListFor(model => model.CP_WorkTypeId, (IEnumerable<SelectListItem>)ViewBag.ListWorkTypes, "--- Hình thức làm việc ---", new { @class = "chosen" })
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <span class="pf-title">Mô tả về bản thân</span>
+                        <div class="pf-field">
+                            @Html.TextAreaFor(model => model.CddAbout, new { @required = "required" })
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <button type="submit" id="updateprofile">Cập nhật</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        @*@Chỉnh sửa thông tin mạng xã hội*@
+        <div class="social-edit">
+            <h3>Mạng xã hội</h3>
+            <form id="valid-update-candidate-socail" class="valide-contact">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <span class="pf-title">Facebook</span>
+                        <div class="pf-field">
+                            @Html.EditorFor(model => model.CddFacebook, new { htmlAttributes = new { placeholder = " VD: www.facebook.com/duongtiendatt", @required = "required" } })
+                            <i class="fa fa-facebook"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Google</span>
+                        <div class="pf-field">
+                            @Html.EditorFor(model => model.CddGoogle, new { htmlAttributes = new { placeholder = " VD: www.facebook.com/duongtiendatt", @required = "required" } })
+                            <i class="la la-google"></i>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        @*Cập nhật liên hệ*@
+        <div class="contact-edit profile-form-edit">
+            <h3>Liên hệ</h3>
+            <form id="valid-update-candidate-contact" class="valide-contact">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <span class="pf-title">Số điện thoại</span>
+                        <div class="pf-field">
+                            @Html.EditorFor(model => model.CddPhone, new { htmlAttributes = new { placeholder = " VD: 0336515294", @required = "required" } })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Email</span>
+                        <div class="pf-field">
+                            @Html.EditorFor(model => model.CddEmail, new { htmlAttributes = new { placeholder = " VD: duongtiendat@gmail.com", @required = "required" } })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Tỉnh/Thành phố</span>
+                        <div class="pf-field">
+                            @Html.DropDownListFor(model => model.Cdd_CityId, (IEnumerable<SelectListItem>)ViewBag.ListCities, "Hãy chọn Tỉnh/Thành phố", new { @class = "chosen" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Quận/Huyện</span>
+                        <div class="pf-field chosen-container-single">
+                            <select data-placeholder="Chọn Quận/Huyện" id="Cdd_DistrictId" class="chosen-single" style="color: black">
+                                <option value="">-- Chọn Quận/Huyện --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Xã/Phường</span>
+                        <div class="pf-field chosen-container-single">
+                            <select data-placeholder="Chọn Phường/Xã" class="chosen-single" id="Cdd_WardId" style="color: black">
+                                <option value="">-- Chọn Phường/Xã --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="pf-title">Địa chỉ</span>
+                        <div class="pf-field">
+                            @Html.EditorFor(model => model.CddAddress, new { @required = "required" })
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <button type="submit" id="updatecontactandsocial">Cập nhật</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

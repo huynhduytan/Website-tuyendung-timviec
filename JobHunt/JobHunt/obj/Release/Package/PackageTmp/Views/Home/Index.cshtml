@@ -1,0 +1,592 @@
+﻿@using JobHunt.BU.DTO
+@using JobHunt.BU.Manage
+@*@using JobHunt.BU.Common*@
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Tuyển dụng, việc làm, tìm việc nhanh và chính xác nhất | JobHunt ";
+
+    //Danh sách việc làm hot nhất
+    var ListJobsHot = (List<RecruitJobDTO>)ViewBag.ListJobsHot;
+
+    //Danh sách việc làm gần đây
+    var ListJobsRecent = (List<RecruitJobDTO>)ViewBag.ListJobsRecent;
+
+    //Danh sách tin tức
+    var ListNews = (List<NewDTO>)ViewBag.ListNews;
+
+    //Lấy danh sách list categories of career
+    var Careers = (List<CareerDTO>)ViewBag.Careers;
+
+    //check class career to set border top and left
+    var careerClass = "";
+
+    var UserId = User.Identity.GetUserId();
+
+
+    //class check save job
+    var classCheckSJ = "";
+
+
+    //count job posted
+    int JobsPosted = ViewBag.CountJobsPosted;
+
+    //count job approval
+    int JobsApproval = ViewBag.CountJobsApproval;
+
+    //count company
+    int JobsCompanies = ViewBag.CountCompanies;
+
+    //count job posted
+    int JobsMembers = ViewBag.CountMembers;
+
+
+    var sttJob = "";
+}
+@Html.Hidden("pageCheck", "index")
+<section>
+    <div class="block no-padding">
+        <div class="container fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="main-featured-sec">
+                        <ul class="main-slider-sec text-arrows">
+                            <li class="slideHome"><img src="~/Assets/client/images/resource/mslider3.jpg" alt="" /></li>
+                            <li class="slideHome"><img src="~/Assets/client/images/resource/mslider2.jpg" alt="" /></li>
+                            <li class="slideHome"><img src="~/Assets/client/images/resource/mslider1.jpg" alt="" /></li>
+                        </ul>
+                        <div class="job-search-sec">
+                            <div class="job-search">
+                                <h3>Tìm Cơ Hội Mới, Tiến Tới Thành Công!</h3>
+                                <span>Tìm việc làm và cơ hội nghề nghiệp ngay bây giờ</span>
+                                @using (Html.BeginForm("ListJobs", "RecruitJob", FormMethod.Post))
+                                {
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-3 col-sm-4">
+                                            <div class="job-field">
+                                                <input type="text" placeholder="Tiêu đề công việc, từ khóa hoặc tên công ty" name="keyWord" />
+                                                <i class="la la-keyboard-o"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-4">
+                                            <div class="job-field index-search">
+                                                @Html.DropDownList("idprofession", (IEnumerable<SelectListItem>)ViewBag.ListProfesstions, "Tất cả danh mục", new { @class = "chosen-city" })
+                                                <i class="la la-map-marker"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-4">
+                                            <div class="job-field index-search">
+                                                @Html.DropDownList("idcity", (IEnumerable<SelectListItem>)ViewBag.ListCities, "Tỉnh/Thành phố", new { @class = "chosen-city" })
+
+                                                <i class="la la-location-arrow"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2  col-md-3 col-sm-12">
+                                            <button type="submit" id="btnsearchjob"><i class="la la-search"></i></button>
+                                        </div>
+                                    </div>
+                                }
+                                @*<div class="or-browser">
+                                        <span>Tìm công việc bằng cách </span>
+                                        <a href="#" title="">Category</a>
+                                    </div>*@
+                            </div>
+                        </div>
+                        <div class="scroll-to">
+                            <a href="#scroll-here" title=""><i class="la la-arrow-down"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="scroll-here">
+    <div class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="heading">
+                        <h2>Danh Mục Phổ Biến</h2>
+                        <span>37 việc làm trực tiếp - 0 thêm vào ngày hôm nay.</span>
+                    </div><!-- Heading -->
+
+                    <div class="cat-sec">
+                        <div class="row no-gape">
+                            @if (Careers.Count > 0)
+                            {
+                                var careerCount = 1;
+                                foreach (var career in Careers.Take(8))
+                                {
+                                    switch (careerCount)
+                                    {
+                                        case 4:
+                                            careerClass = "border-top-left";
+                                            break;
+                                        case 5:
+                                            careerClass = "border-bottom";
+                                            break;
+                                        default:
+                                            careerClass = "";
+                                            break;
+                                    }
+                                    <div class="col-lg-3 col-md-3 col-sm-6">
+                                        <div class="p-category">
+                                            <a href="@Url.Action("ListJobs","RecruitJob",new { idcareer = career.CareerId})" title="@career.CareerName" class="@careerClass">
+                                                <i class="@career.Icon"></i>
+                                                <span>@career.CareerName</span>
+                                                <p>(@career.CountJob công việc)</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    careerCount++;
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-12">
+                    <div class="browse-all-cat">
+                        <a href="@Url.Action("ShowListCategories","Home")" title="">Tất cả các danh mục</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section>
+    <div class="block double-gap-top double-gap-bottom">
+        <div data-velocity="-.1" style="background: url(/Assets/client/images/resource/parallax1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible layer color"></div><!-- PARALLAX BACKGROUND IMAGE -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="simple-text-block">
+                        <h3>Bạn không muốn bỏ lỡ bất kỳ bài đăng tuyển dụng nào?</h3>
+                        <span>Hãy đăng ký với chúng tôi ngay!</span>
+                        <a title="" data-toggle="modal" data-target="#exampleModal">Đăng ký ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Large modal -->
+    @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>*@
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Đăng ký nhận tin</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="title-job titlereceive">Vui lòng xác nhận các thông tin chi tiết sau để nhận bản tin điện tử</p>
+                    <div class="inforeceive abovereceive">
+                        <div class="row">
+                            <div class="col-lg-4 nameleft">
+                                Địa chỉ email<span class="red">(*):</span>
+                            </div>
+                            <div class="col-lg-8" style="text-align: left;">
+                                @Html.TextBox("emailreceive", "", new { @class = "form-control input-sm confirm-phone" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 nameleft">
+                                Họ tên<span class="red">(*):</span>
+                            </div>
+                            <div class="col-lg-8" style="text-align: left;">
+                                @Html.TextBox("namereceive", "", new { @class = "form-control input-sm confirm-phone" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inforeceive">
+                        <p class="titlecare">Chọn nội dung bạn quan tâm</p>
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="checkbox" value="1" id="chk_1" name="checkboxreceive">
+                                <label for="chk_1" class="labelforcheckbox">Tin tuyển dụng</label>
+                            </div>
+                            <div class="col-6">
+                                <input type="checkbox" value="2" id="chk_2" name="checkboxreceive">
+                                <label for="chk_2" class="labelforcheckbox">Tư vấn/Bài viết</label>
+                            </div>
+                        </div>
+                        <div class="row receivedropdown">
+                            <div class="col-lg-4" style="text-align: right;">
+                                Ngành nghề:
+                            </div>
+                            <div class="col-lg-8" style="text-align: left;">
+                                @Html.DropDownList("idprofessionreceive", (IEnumerable<SelectListItem>)ViewBag.ListProfesstions, "Tất cả danh mục", new { @class = "chosen-city" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-success" id="registerreceive">Đăng ký</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closereceive">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tab-sec">
+                        <ul class="nav nav-tabs">
+                            <li><a class="current" data-tab="fjobs">Công việc nổi bật</a></li>
+                            <li><a data-tab="rjobs">Công việc gần đây</a></li>
+                        </ul>
+                        <div id="fjobs" class="tab-content current">
+                            <div class="job-listings-tabs">
+                                <div class="row">
+                                    @if (ListJobsHot.Count > 0)
+                                    {
+                                        var count = 1;
+                                        foreach (var ljh in ListJobsHot.Take(10))
+                                        {
+                                            if (ljh.RJStatus == (int)JobHunt.BU.Common.Enum.EnumStatusJob.Approvaling)
+                                            {
+                                                sttJob = "Chưa duyệt";
+                                            }
+                                            else if (ljh.RJStatus == (int)JobHunt.BU.Common.Enum.EnumStatusJob.Active)
+                                            {
+                                                sttJob = "Đã duyệt";
+                                            }
+                                            <div class="col-lg-6">
+                                                <div class="job-listing wtabs">
+                                                    <div class="job-title-sec">
+                                                        <div class="c-logo"> <img src="@ljh.RecruitDTO.RILogo" alt="" class="logo-company"> </div>
+                                                        <h3 class="">
+                                                            @*<span class="red">(@sttJob)</span>*@
+                                                            <a href="@Url.Action("DetailJob", "RecruitJob", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(ljh.RJTitle, ljh.RecruitJobId) })" title="" class="titlejob">@ljh.RJTitle</a>
+                                                        </h3>
+                                                        <span>@ljh.RecruitDTO.RICompanyName</span>
+                                                        <div class="job-lctn"><i class="la la-map-marker"></i>@ljh.RJ_WorkPlace</div>
+                                                    </div>
+                                                    <div class="job-style-bx worktype-job">
+                                                        <span class="job-is @ljh.ClassWorkType fill worktype-job">@ljh.WorkTypeDTO.WTName</span>
+                                                        @if (!string.IsNullOrEmpty(UserId))
+                                                        {
+                                                            var CheckSaveJob = new CandidateManage().CheckSaveJob(UserId, ljh.RecruitJobId);
+
+                                                            if (CheckSaveJob != 0)
+                                                            {
+                                                                classCheckSJ = "active";
+                                                            }
+                                                            else
+                                                            {
+                                                                classCheckSJ = "";
+                                                            }
+                                                        }
+                                                        <span class="fav-job @classCheckSJ" id="rc@(ljh.RecruitJobId)"><i class="la la-heart-o"></i></span>
+                                                    </div>
+                                                </div><!-- Job -->
+                                            </div>
+                                            count++;
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            @if (ListJobsHot.Count > 10)
+                            {
+                                <div class="browse-all-cat">
+                                    <a href="@Url.Action("ListJobs", "RecruitJob", new { type = JobHunt.BU.Common.Enum.EnumTypeJob.Normal })" title="" class="style2">Xem nhiều hơn</a>
+                                </div>
+                            }
+                        </div>
+                        <div id="rjobs" class="tab-content">
+                            <div class="job-listings-tabs">
+                                <div class="row">
+                                    @if (ListJobsRecent.Count > 0)
+                                    {
+                                        var count = 1;
+                                        foreach (var ljh in ListJobsRecent.Take(10))
+                                        {
+                                            if (ljh.RJStatus == (int)JobHunt.BU.Common.Enum.EnumStatusJob.Approvaling)
+                                            {
+                                                sttJob = "Chưa duyệt";
+                                            }
+                                            else if (ljh.RJStatus == (int)JobHunt.BU.Common.Enum.EnumStatusJob.Active)
+                                            {
+                                                sttJob = "Đã duyệt";
+                                            }
+                                            <div class="col-lg-6">
+                                                <div class="job-listing wtabs">
+                                                    @if (ljh.RecruitDTO != null)
+                                                    {
+                                                        <div class="job-title-sec">
+                                                            <div class="c-logo"> <img src="@ljh.RecruitDTO.RILogo" alt="" class="logo-company"> </div>
+                                                            <h3 class=""><a href="@Url.Action("DetailJob", "RecruitJob", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(ljh.RJTitle, ljh.RecruitJobId) })" title="" class="titlejob">@ljh.RJTitle</a></h3>
+                                                            <span>@ljh.RecruitDTO.RICompanyName</span>
+                                                            <div class="job-lctn"><i class="la la-map-marker"></i>@ljh.RJ_WorkPlace</div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="job-title-sec">
+                                                            <div class="c-logo"> <img src="/Assets/client/images/resource/logo10.png" alt="" class="logo-company"> </div>
+                                                            <h3 class=""><a href="@Url.Action("DetailJob", "RecruitJob", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(ljh.RJTitle, ljh.RecruitJobId) })" title="" class="titlejob">@ljh.RJTitle</a></h3>
+                                                            <span>Bài đăng bởi admin</span>
+                                                            <div class="job-lctn"><i class="la la-map-marker"></i>@ljh.RJ_WorkPlace</div>
+                                                        </div>
+                                                    }
+
+                                                    <div class="job-style-bx worktype-job">
+                                                        <span class="job-is @ljh.ClassWorkType fill worktype-job">@ljh.WorkTypeDTO.WTName</span>
+                                                        @if (!string.IsNullOrEmpty(UserId))
+                                                        {
+                                                            var CheckSaveJob = new CandidateManage().CheckSaveJob(UserId, ljh.RecruitJobId);
+
+                                                            if (CheckSaveJob != 0)
+                                                            {
+                                                                classCheckSJ = "active";
+                                                            }
+                                                            else
+                                                            {
+                                                                classCheckSJ = "";
+                                                            }
+                                                        }
+                                                        <span class="fav-job @classCheckSJ" id="rc@(ljh.RecruitJobId)"><i class="la la-heart-o"></i></span>
+                                                    </div>
+                                                </div><!-- Job -->
+                                            </div>
+                                            count++;
+                                        }
+                                    }
+
+                                </div>
+                            </div>
+                            @if (ListJobsRecent.Count > 10)
+                            {
+                                <div class="browse-all-cat">
+                                    <a href="@Url.Action("ListJobs", "RecruitJob", new { type = JobHunt.BU.Common.Enum.EnumTypeJob.Hot })" title="" class="style2">Xem nhiều hơn</a>
+                                </div>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="block">
+        <div data-velocity="-.1" style="background: url(/Assets/client/images/resource/parallax2.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible layer color light"></div><!-- PARALLAX BACKGROUND IMAGE -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="heading">
+                        <h2 style="color: white">Các Nhà Tuyển Dụng Hàng Đầu</h2>
+                        <span style="color: white">Một số công ty chúng tôi đã giúp nhà tuyển dụng tuyển được những ứng viên xuất sắc trong thời gian qua.</span>
+                    </div><!-- Heading -->
+                    <div class="comp-sec">
+                        <div class="company-img">
+                            <a href="#" title=""><img src="~/Assets/client/images/resource/cc1.jpg" alt="" /></a>
+                        </div><!-- Client  -->
+                        <div class="company-img">
+                            <a href="#" title=""><img src="~/Assets/client/images/resource/cc2.jpg" alt="" /></a>
+                        </div><!-- Client  -->
+                        <div class="company-img">
+                            <a href="#" title=""><img src="~/Assets/client/images/resource/cc3.jpg" alt="" /></a>
+                        </div><!-- Client  -->
+                        <div class="company-img">
+                            <a href="#" title=""><img src="~/Assets/client/images/resource/cc4.jpg" alt="" /></a>
+                        </div><!-- Client  -->
+                        <div class="company-img">
+                            <a href="#" title=""><img src="~/Assets/client/images/resource/cc5.jpg" alt="" /></a>
+                        </div><!-- Client  -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@*Quảng cáo*@
+<section>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="/">
+                    <img src="~/Assets/advertisement/PC_1320x392px.gif" alt="Los Angeles" width="1100" height="500">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="/">
+                    <img src="~/Assets/advertisement/tai_tro_su_kien_NTV_PC_25022019.gif" alt="Chicago" width="1100" height="500">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="/">
+                    <img src="~/Assets/advertisement/PC_1320x392px.gif" alt="New York" width="1100" height="500">
+                </a>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</section>
+
+
+<section>
+    <div class="block">
+        <div data-velocity="-.1" style="background: url(/Assets/client/images/resource/parallax3.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="heading">
+                        <h2>Mẹo Nhanh Tìm Việc </h2>
+                        @*<span>Found by employers communicate directly with hiring managers and recruiters.</span>*@
+                    </div><!-- Heading -->
+                    <div class="blog-sec">
+                        <div class="row">
+                            @if (ListNews.Count > 0)
+                            {
+                                foreach (var n in ListNews.Take(3).OrderByDescending(x => x.NPublicDate))
+                                {
+                                    <div class="col-lg-4">
+                                        <div class="my-blog">
+                                            <div class="blog-thumb">
+                                                <a href="@Url.Action("DetailBlog", "Blog", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(n.NTitle, n.NewsId) })" title=""><img src="@n.NAvatar" alt="" class="avatarimagenew" /></a>
+                                                <div class="blog-metas">
+                                                    <a title="">@n.NPostDate.Value.ToString("dd-MM-yyyy")</a>
+                                                </div>
+                                            </div>
+                                            <div class="blog-details">
+                                                <h3><a href="@Url.Action("DetailBlog", "Blog", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(n.NTitle, n.NewsId) })" title="@n.NTitle" class="titlejob">@n.NTitle</a></h3>
+                                                <p class="describecontent">@n.NQuote</p>
+                                                <a href="@Url.Action("DetailBlog", "Blog", new { id = JobHunt.BU.Common.GenerateUrl.GenerateSlug(n.NTitle, n.NewsId) })" title="">Xem chi tiết<i class="la la-long-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            @*<div class="col-lg-4">
+                                    <div class="my-blog">
+                                        <div class="blog-thumb">
+                                            <a href="#" title=""><img src="~/Assets/client/images/resource/b1.jpg" alt="" /></a>
+                                            <div class="blog-metas">
+                                                <a href="#" title="">@DateTime.Now.ToString("dd-MM-yyyy")</a>
+                                            </div>
+                                        </div>
+                                        <div class="blog-details">
+                                            <h3><a href="#" title="">Attract More Attention Sales And Profits</a></h3>
+                                            <p>A job is a regular activity performed in exchange becoming an employee, volunteering, </p>
+                                            <a href="#" title="">Read More <i class="la la-long-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="my-blog">
+                                        <div class="blog-thumb">
+                                            <a href="#" title=""><img src="~/Assets/client/images/resource/b2.jpg" alt="" /></a>
+                                            <div class="blog-metas">
+                                                <a href="#" title="">@DateTime.Now.ToString("dd-MM-yyyy")</a>
+                                            </div>
+                                        </div>
+                                        <div class="blog-details">
+                                            <h3><a href="#" title="">11 Tips to Help You Get New Clients</a></h3>
+                                            <p>A job is a regular activity performed in exchange becoming an employee, volunteering, </p>
+                                            <a href="#" title="">Read More <i class="la la-long-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="my-blog">
+                                        <div class="blog-thumb">
+                                            <a href="#" title=""><img src="~/Assets/client/images/resource/b3.jpg" alt="" /></a>
+                                            <div class="blog-metas">
+                                                <a href="#" title="">@DateTime.Now.ToString("dd-MM-yyyy")</a>
+                                            </div>
+                                        </div>
+                                        <div class="blog-details">
+                                            <h3><a href="#" title="">An Overworked Newspaper Editor</a></h3>
+                                            <p>A job is a regular activity performed in exchange becoming an employee, volunteering, </p>
+                                            <a href="#" title="">Read More <i class="la la-long-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="block">
+        <div data-velocity="-.1" style="background: url(/Assets/client/images/resource/parallax1.jpg) 50% -69.7px repeat scroll transparent;" class="parallax scrolly-invisible layer color"></div><!-- PARALLAX BACKGROUND IMAGE -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="heading light">
+                        <h2>Thống Kê Trang Web</h2>
+                        <span>
+                            Ở đây chúng tôi liệt kê số liệu thống kê trang web của chúng tôi và có bao nhiêu người chúng tôi đã giúp tìm việc <br /> và các công ty đã tìm thấy
+                            ứng cử viên. Đó là một số liệu thống kê khá tuyệt vời!
+                        </span>
+                    </div><!-- Heading -->
+                    <div class="stats-sec">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="stats">
+                                    <span>@JobsPosted</span>
+                                    <h5>Việc làm đã đăng</h5>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="stats">
+                                    <span>@JobsApproval</span>
+                                    <h5>Đã phê duyệt</h5>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="stats">
+                                    <span>@JobsCompanies</span>
+                                    <h5>Công ty</h5>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="stats">
+                                    <span>@JobsMembers</span>
+                                    <h5>Thành viên</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
